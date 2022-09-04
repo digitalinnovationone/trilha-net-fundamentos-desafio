@@ -33,9 +33,8 @@ namespace DesafioFundamentos.Models
             Console.WriteLine("=========================================================================\n");
             Console.WriteLine("Digite a placa do veículo para remoção:");
            
-        
-            string placa =  Console.ReadLine().ToUpper();
 
+            string placa =  Console.ReadLine().ToUpper();
 
             if (veiculos.Any(x => x.ToUpper() == placa))
             {
