@@ -1,33 +1,47 @@
 ﻿using DesafioFundamentos.Models;
 
-// Coloca o encoding para UTF8 para exibir acentuação
 Console.OutputEncoding = System.Text.Encoding.UTF8;
 
-decimal precoInicial = 0;
-decimal precoPorHora = 0;
+decimal precoInicial = Convert.ToDecimal(7.5);
+decimal precoPorHora = Convert.ToDecimal(4.5);
 
-Console.WriteLine("Seja bem vindo ao sistema de estacionamento!\n" +
-                  "Digite o preço inicial:");
-precoInicial = Convert.ToDecimal(Console.ReadLine());
+Console.Clear();
+Console.WriteLine("\n=========================================================================");
+Console.WriteLine("|                             SEJA BEM VINDO!                           |");       
+Console.WriteLine("|                       SISTEMA DE ESTACIONAMENTO                       |");
+Console.WriteLine("=========================================================================");
+Console.WriteLine("|                                                                       |");
+Console.WriteLine("|                                                                       |");
+Console.WriteLine("|                          _____                _____      _____        |");
+Console.WriteLine("|       ______   ______  º!O____!º   ______   º!_O___!º  º!_O___!º      |");
+Console.WriteLine("|      | vago | | vago | |       |  | vago |  |       |  |       |      |");
+Console.WriteLine("|       __TT__   __TT_  _<>_____<>_  __TT__  _<>_____<>__<>_____<>_     |");
+Console.WriteLine("|    /        /       /   U     U /        /  U       U/ U       U /    |");
+Console.WriteLine("|   /        /       /           /        /           /           /     |");
+Console.WriteLine("|                                                                       |");
+Console.WriteLine("|                                                                       |");
+Console.WriteLine("=========================================================================\n");
+Console.WriteLine("Pressione uma tecla para continuar...");
+Console.ReadLine();
 
-Console.WriteLine("Agora digite o preço por hora:");
-precoPorHora = Convert.ToDecimal(Console.ReadLine());
-
-// Instancia a classe Estacionamento, já com os valores obtidos anteriormente
 Estacionamento es = new Estacionamento(precoInicial, precoPorHora);
 
 string opcao = string.Empty;
 bool exibirMenu = true;
 
-// Realiza o loop do menu
 while (exibirMenu)
 {
     Console.Clear();
-    Console.WriteLine("Digite a sua opção:");
+    Console.WriteLine("=========================================================================");
+    Console.WriteLine("|                              MENU PRINCIPAL                           |");
+    Console.WriteLine("=========================================================================\n");
+
+    Console.WriteLine("Digite:");
     Console.WriteLine("1 - Cadastrar veículo");
     Console.WriteLine("2 - Remover veículo");
     Console.WriteLine("3 - Listar veículos");
-    Console.WriteLine("4 - Encerrar");
+    Console.WriteLine("4 - Tabela de valores");
+    Console.WriteLine("5 - Encerrar");
 
     switch (Console.ReadLine())
     {
@@ -43,8 +57,12 @@ while (exibirMenu)
             es.ListarVeiculos();
             break;
 
-        case "4":
+        case "5":
             exibirMenu = false;
+            break;
+        
+        case "4":
+            es.ConsultarTabelaPreco();
             break;
 
         default:
@@ -55,5 +73,5 @@ while (exibirMenu)
     Console.WriteLine("Pressione uma tecla para continuar");
     Console.ReadLine();
 }
-
+Console.Clear();
 Console.WriteLine("O programa se encerrou");
