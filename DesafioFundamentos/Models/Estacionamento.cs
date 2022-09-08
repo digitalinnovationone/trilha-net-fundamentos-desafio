@@ -13,35 +13,36 @@ namespace DesafioFundamentos.Models
         }
 
         public void AdicionarVeiculo()
-        {
-            // TODO: Pedir para o usuário digitar uma placa (ReadLine) e adicionar na lista "veiculos"
-            // *IMPLEMENTE AQUI*
-            Console.WriteLine("Digite a placa do veículo para estacionar:");
+        {   
+            Console.Clear();
+            Console.WriteLine("=========================================================================");
+            Console.WriteLine("|                    REGISTRAR CARRO NO ESTACIONAMENTO                  |");
+            Console.WriteLine("=========================================================================\n");
+           
+            Console.WriteLine("Digite a placa do veículo:");
+            string placaAdicionar = Console.ReadLine().ToUpper();
+            veiculos.Add(placaAdicionar);
+
+            Console.WriteLine($"Veiculo de placa: {placaAdicionar} foi cadastrado com sucesso!\n");
         }
 
         public void RemoverVeiculo()
-        {
-            Console.WriteLine("Digite a placa do veículo para remover:");
+        {   
+            Console.Clear();
 
-            // Pedir para o usuário digitar a placa e armazenar na variável placa
-            // *IMPLEMENTE AQUI*
-            string placa = "";
+            Console.WriteLine("=========================================================================\n");
+            Console.WriteLine("Digite a placa do veículo para remoção:");
+           
 
-            // Verifica se o veículo existe
-            if (veiculos.Any(x => x.ToUpper() == placa.ToUpper()))
+            string placa =  Console.ReadLine().ToUpper();
+
+            if (veiculos.Any(x => x.ToUpper() == placa))
             {
                 Console.WriteLine("Digite a quantidade de horas que o veículo permaneceu estacionado:");
-
-                // TODO: Pedir para o usuário digitar a quantidade de horas que o veículo permaneceu estacionado,
-                // TODO: Realizar o seguinte cálculo: "precoInicial + precoPorHora * horas" para a variável valorTotal                
-                // *IMPLEMENTE AQUI*
-                int horas = 0;
-                decimal valorTotal = 0; 
-
-                // TODO: Remover a placa digitada da lista de veículos
-                // *IMPLEMENTE AQUI*
-
-                Console.WriteLine($"O veículo {placa} foi removido e o preço total foi de: R$ {valorTotal}");
+                int horas = int.Parse(Console.ReadLine());
+                decimal valorTotal = precoInicial + (precoPorHora * horas); 
+                veiculos.Remove(placa);
+                Console.WriteLine($"O veículo de placa: {placa} foi removido e o preço total foi de: R$ {Math.Round(valorTotal,2)}");
             }
             else
             {
@@ -51,17 +52,71 @@ namespace DesafioFundamentos.Models
 
         public void ListarVeiculos()
         {
-            // Verifica se há veículos no estacionamento
             if (veiculos.Any())
             {
-                Console.WriteLine("Os veículos estacionados são:");
-                // TODO: Realizar um laço de repetição, exibindo os veículos estacionados
-                // *IMPLEMENTE AQUI*
+                Console.Clear();
+                Console.WriteLine("=========================================================================");
+                Console.WriteLine("|                            LISTA DE VEÍCULOS                          |");
+                Console.WriteLine("=========================================================================");
+                Console.WriteLine($"                 Quantidade de veículos estacionados: {veiculos.Count}");
+                Console.WriteLine("=========================================================================\n");
+                Console.WriteLine("Placas dos veículos estacionados:\n");
+
+                foreach(string carros in veiculos)
+                {
+                    Console.WriteLine($" PLACA: {carros}");
+                }
             }
             else
             {
                 Console.WriteLine("Não há veículos estacionados.");
             }
+        }
+
+        public void ConsultarTabelaPreco()
+        {
+
+            Console.Clear();
+            Console.WriteLine("=========================================================================");
+            Console.WriteLine("|                      CONSULTA TABELA DE PRECO                         |");
+            Console.WriteLine("=========================================================================\n");
+
+            Console.WriteLine($"Valor para  entrada: {precoInicial}");
+            Console.WriteLine($"Valor da Hora: {precoPorHora}");
+
+            Console.WriteLine("\nDigite:\n 1 - Auterar tabela de valores\n 2 - Voltar menu inicial");
+
+            switch(Console.ReadLine())
+            {
+                case "1":
+                    AtualizarTabela();
+                    break;
+
+                case "2":
+                    break;
+
+                default:
+                    Console.Clear();
+                    Console.WriteLine("Por favor digite um valor válido...");
+                    Console.WriteLine("Digite algo para continuar...");
+                    Console.ReadLine();
+                    ConsultarTabelaPreco();
+                    break;
+            }
+
+        }
+
+        public void AtualizarTabela()
+        {   
+            Console.Clear();
+            Console.WriteLine("=========================================================================");
+            Console.WriteLine("|                          ATUALIZANDO VALORES                          |");
+            Console.WriteLine("=========================================================================\n");
+
+            Console.WriteLine($"O Valor para entrada atual é {precoInicial}\nDigite o novo valor:");
+            precoInicial = decimal.Parse(Console.ReadLine());
+            Console.WriteLine($"O Valor da hora atual é {precoPorHora}\nDigite o novo valor:");
+            precoPorHora = decimal.Parse(Console.ReadLine());
         }
     }
 }
