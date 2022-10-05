@@ -9,7 +9,7 @@ namespace DesafioFundamentos.Models
   {
     public string Placa { get; private set; }
     public int HoraEntrada { get; private set; }
-    private int HoraSaida { get; set; }
+    public int HoraSaida { get; private set; }
 
     public Veiculo(string placa, int horaEntrada)
     {

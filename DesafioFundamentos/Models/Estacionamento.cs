@@ -48,6 +48,11 @@ namespace DesafioFundamentos.Models
       }
     }
 
+    public int CalculaHoras(Veiculo veiculo)
+    {
+      return veiculo.HoraSaida - veiculo.HoraEntrada;
+    }
+
 
     public Decimal GeraPagamento(Veiculo veiculo, int totalHoras)
     {
