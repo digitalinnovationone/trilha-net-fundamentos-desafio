@@ -49,6 +49,20 @@ namespace DesafioFundamentos.Models
     }
 
 
+    public Decimal GeraPagamento(Veiculo veiculo, int totalHoras)
+    {
+      //valorTotal = (precoInicial + precoPorHora) * horas;
+      //valorTotal = (2+4) * (8-2);
+      //valortotal = 6 * 6 = 36
+
+      Decimal valorTotal = (precoInicial + precoPorHora) * totalHoras;
+
+
+      return valorTotal;
+
+    }
+
+
     public void RemoverVeiculoMenu()
     {
       Console.WriteLine("Digite a placa do veículo para remover:");
