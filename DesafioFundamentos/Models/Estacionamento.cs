@@ -4,7 +4,7 @@ namespace DesafioFundamentos.Models
   {
     private decimal precoInicial = 0;
     private decimal precoPorHora = 0;
-    private List<string> veiculos = new List<string>();
+    public List<Veiculo> veiculos = new List<Veiculo>();
 
     public Estacionamento(decimal precoInicial, decimal precoPorHora)
     {
@@ -12,11 +12,19 @@ namespace DesafioFundamentos.Models
       this.precoPorHora = precoPorHora;
     }
 
-    public void AdicionarVeiculo()
+
+    public void AdicionarVeiculoMenu()
     {
       Console.WriteLine("Digite a placa do veículo para estacionar:");
       string placa = Console.ReadLine();
-      veiculos.Add(placa);
+    }
+
+    public Veiculo AdicionarVeiculo(string placa, int horaEntrada)
+    {
+      Veiculo veiculo = new Veiculo(placa.ToUpper(), horaEntrada);
+      veiculos.Add(veiculo);
+      return veiculo;
+      //veiculos.Add(placa);
     }
 
     public void RemoverVeiculo()
@@ -31,9 +39,9 @@ namespace DesafioFundamentos.Models
       {
         Console.WriteLine("Digite a quantidade de horas que o veículo permaneceu estacionado:");
 
-    
+
         //"precoInicial + precoPorHora * horas" para a variável valorTotal                
-      
+
         int horas = 0;
         decimal valorTotal = 0;
         horas = int.Parse(Console.ReadLine());
