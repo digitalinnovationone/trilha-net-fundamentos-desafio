@@ -34,6 +34,21 @@ namespace DesafioFundamentos.Models
       return Veiculos.FirstOrDefault(v => v.Placa == placa.ToUpper());
     }
 
+    public void RemoverVeiculo(Veiculo veiculo, int horaSaida)
+    {
+      if (veiculo != null)
+      {
+        veiculo.AddSaida(8);
+        Relatorio.Add(veiculo);
+        Veiculos.Remove(veiculo);
+      }
+      else
+      {
+        throw new Exception("Veiculo chegou nulo");
+      }
+    }
+
+
     public void RemoverVeiculoMenu()
     {
       Console.WriteLine("Digite a placa do veículo para remover:");
