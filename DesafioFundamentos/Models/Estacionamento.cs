@@ -57,7 +57,7 @@ namespace DesafioFundamentos.Models
       placa = Console.ReadLine();
 
       // Verifica se o veículo existe
-      if (veiculos.Any(x => x.ToUpper() == placa.ToUpper()))
+      if (Veiculos.Any(x => x.Placa == placa.ToUpper()))
       {
         Console.WriteLine("Digite a quantidade de horas que o veículo permaneceu estacionado:");
 
@@ -70,7 +70,7 @@ namespace DesafioFundamentos.Models
         valorTotal = (precoInicial + precoPorHora) * horas;
 
 
-        veiculos.Remove(placa);
+        // Veiculos.Remove(placa);
 
         Console.WriteLine($"O veículo {placa} foi removido e o preço total foi de: R$ {valorTotal}");
       }
@@ -83,10 +83,10 @@ namespace DesafioFundamentos.Models
     public void ListarVeiculos()
     {
       // Verifica se há veículos no estacionamento
-      if (veiculos.Any())
+      if (Veiculos.Any())
       {
         Console.WriteLine("Os veículos estacionados são:");
-        foreach (var item in veiculos)
+        foreach (var item in Veiculos)
         {
           Console.WriteLine(item);
         }
