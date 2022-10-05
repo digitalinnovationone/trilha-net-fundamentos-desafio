@@ -30,6 +30,30 @@ namespace Tests
     }
 
     [TestMethod]
+    public void TestBuscaVeiculo()
+    {
+      decimal precoInicial = 2;
+      decimal precoPorHora = 4;
+      string placa = "ebx-2121";
+      int horaEntrada = 2;
+      int horaSaida = 8;
+      bool estacionado;
+
+      Estacionamento estacionar = new Estacionamento(precoInicial, precoPorHora);
+
+      estacionar.AdicionarVeiculo(placa, horaEntrada);
+      
+
+      Veiculo veiculo = estacionar.BuscarVeiculo(placa);
+
+      Assert.AreEqual(placa.ToUpper(), veiculo.Placa);
+
+
+    }
+
+
+
+    [TestMethod]
     public void TestRemoveVeiculo()
     {
       decimal precoInicial = 2;
