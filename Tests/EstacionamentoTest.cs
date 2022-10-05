@@ -17,13 +17,14 @@ namespace Tests
       decimal precoInicial = 2;
       decimal precoPorHora = 4;
       string placa = "ebx-2121";
+      int horaEntrada = 2;
 
       Estacionamento estacionar = new Estacionamento(precoInicial,precoPorHora);
 
-      Veiculo veiculo = estacionar.AdicionarVeiculo(placa);
+      Veiculo veiculo = estacionar.AdicionarVeiculo(placa,horaEntrada);
 
-      Assert.AreEqual(placa,veiculo.placa);
-      
+      Assert.AreEqual(placa,veiculo.Placa);
+
 
     }
   }
