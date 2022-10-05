@@ -42,7 +42,7 @@ namespace Tests
       Estacionamento estacionar = new Estacionamento(precoInicial, precoPorHora);
 
       estacionar.AdicionarVeiculo(placa, horaEntrada);
-      
+
       Veiculo veiculo = estacionar.BuscarVeiculo(placa);
       Veiculo veiculo2 = estacionar.BuscarVeiculo("ELX-2121");
 
@@ -59,20 +59,22 @@ namespace Tests
     {
       decimal precoInicial = 2;
       decimal precoPorHora = 4;
-      string placa = "ebx-2121";
+      string placa = "EBX-2121";
       int horaEntrada = 2;
       int horaSaida = 8;
       bool estacionado;
 
       Estacionamento estacionar = new Estacionamento(precoInicial, precoPorHora);
 
-      estacionar.AdicionarVeiculo(placa, horaEntrada);
-      estacionado = estacionar.Veiculos.Any(v => v.Placa == placa.ToUpper());
-      Assert.AreEqual(true, estacionado);
+      Veiculo veiculo = new Veiculo(placa, 2);
+      estacionar.Veiculos.Add(veiculo);
 
-      estacionar.RemoverVeiculo(placa, horaSaida);
-      estacionado = estacionar.Veiculos.Any(v => v.Placa == placa.ToUpper());
 
+
+
+      estacionar.RemoverVeiculo(veiculo, horaSaida);
+
+      estacionado = estacionar.Veiculos.Any(v => v.Placa == placa.ToUpper());
       Assert.AreEqual(false, estacionado);
 
 
