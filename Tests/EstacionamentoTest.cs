@@ -74,7 +74,22 @@ namespace Tests
       estacionado = estacionar.Veiculos.Any(v => v.Placa == placa.ToUpper());
       Assert.AreEqual(false, estacionado);
 
+    }
 
+    [TestMethod]
+    public void TestGeraPagamento()
+    {
+      decimal precoInicial = 2;
+      decimal precoPorHora = 4;
+      string placa = "EBX-2121";
+
+      Estacionamento estacionar = new Estacionamento(precoInicial, precoPorHora);
+
+      Veiculo veiculo = new Veiculo(placa, 2);
+
+      Decimal total = estacionar.GeraPagamento(veiculo, 8);
+
+      Assert.AreEqual(36, total);
 
     }
   }
