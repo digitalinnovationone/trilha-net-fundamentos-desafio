@@ -87,7 +87,7 @@ namespace Tests
 
       Veiculo veiculo = new Veiculo(placa, 2);
 
-      Decimal total = estacionar.GeraPagamento(veiculo, 8);
+      Decimal total = estacionar.GeraPagamento(veiculo, 6);
 
       Assert.AreEqual(36, total);
 
