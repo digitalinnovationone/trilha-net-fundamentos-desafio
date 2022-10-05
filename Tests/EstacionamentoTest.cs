@@ -19,13 +19,13 @@ namespace Tests
       string placa = "ebx-2121";
       int horaEntrada = 2;
 
-      Estacionamento estacionar = new Estacionamento(precoInicial,precoPorHora);
+      Estacionamento estacionar = new Estacionamento(precoInicial, precoPorHora);
 
-      Veiculo veiculo = estacionar.AdicionarVeiculo(placa,horaEntrada);
+      estacionar.AdicionarVeiculo(placa, horaEntrada);
 
-      bool estacionado = Estacionamento.Veiculos.Any(v => v.Placa == placa.ToUpper());
+      bool estacionado = estacionar.Veiculos.Any(v => v.Placa == placa.ToUpper());
 
-      Assert.AreEqual(true,estacionado);
+      Assert.AreEqual(true, estacionado);
 
     }
 
@@ -37,12 +37,20 @@ namespace Tests
       string placa = "ebx-2121";
       int horaEntrada = 2;
       int horaSaida = 8;
+      bool estacionado;
 
-      Estacionamento estacionar = new Estacionamento(precoInicial,precoPorHora);
+      Estacionamento estacionar = new Estacionamento(precoInicial, precoPorHora);
 
-      Veiculo veiculo = estacionar.AdicionarVeiculo(placa,horaEntrada);
+      estacionar.AdicionarVeiculo(placa, horaEntrada);
+      estacionado = estacionar.Veiculos.Any(v => v.Placa == placa.ToUpper());
+      Assert.AreEqual(true, estacionado);
 
-      Assert.AreEqual(placa,veiculo.Placa);
+      estacionar.RemoverVeiculo(placa, horaSaida);
+      estacionado = estacionar.Veiculos.Any(v => v.Placa == placa.ToUpper());
+
+      Assert.AreEqual(false, estacionado);
+
+
 
     }
   }
