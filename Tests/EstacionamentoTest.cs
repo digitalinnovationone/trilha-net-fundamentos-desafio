@@ -43,10 +43,11 @@ namespace Tests
 
       estacionar.AdicionarVeiculo(placa, horaEntrada);
       
-
       Veiculo veiculo = estacionar.BuscarVeiculo(placa);
+      Veiculo veiculo2 = estacionar.BuscarVeiculo("ELX-2121");
 
       Assert.AreEqual(placa.ToUpper(), veiculo.Placa);
+      Assert.AreEqual(null, veiculo2);
 
 
     }
