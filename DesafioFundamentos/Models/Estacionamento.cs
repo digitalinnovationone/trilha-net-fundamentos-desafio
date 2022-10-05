@@ -19,12 +19,11 @@ namespace DesafioFundamentos.Models
       string placa = Console.ReadLine();
     }
 
-    public Veiculo AdicionarVeiculo(string placa, int horaEntrada)
+    public void AdicionarVeiculo(string placa, int horaEntrada)
     {
       Veiculo veiculo = new Veiculo(placa.ToUpper(), horaEntrada);
-      veiculos.Add(veiculo);
-      return veiculo;
-      //veiculos.Add(placa);
+      Veiculos.Add(veiculo);
+    }
     }
 
     public void RemoverVeiculo()
