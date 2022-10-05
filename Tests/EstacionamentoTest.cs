@@ -36,7 +36,6 @@ namespace Tests
       decimal precoPorHora = 4;
       string placa = "ebx-2121";
       int horaEntrada = 2;
-      int horaSaida = 8;
       bool estacionado;
 
       Estacionamento estacionar = new Estacionamento(precoInicial, precoPorHora);
@@ -49,7 +48,6 @@ namespace Tests
       Assert.AreEqual(placa.ToUpper(), veiculo.Placa);
       Assert.AreEqual(null, veiculo2);
 
-
     }
 
 
@@ -60,7 +58,6 @@ namespace Tests
       decimal precoInicial = 2;
       decimal precoPorHora = 4;
       string placa = "EBX-2121";
-      int horaEntrada = 2;
       int horaSaida = 8;
       bool estacionado;
 
