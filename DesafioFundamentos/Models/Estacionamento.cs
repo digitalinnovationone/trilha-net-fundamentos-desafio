@@ -24,6 +24,13 @@ namespace DesafioFundamentos.Models
       Veiculo veiculo = new Veiculo(placa.ToUpper(), horaEntrada);
       Veiculos.Add(veiculo);
     }
+
+    public Veiculo BuscarVeiculo(string placa)
+    {
+
+      if (!Veiculos.Any(v => v.Placa == placa.ToUpper()))
+        return null;
+      return Veiculos.FirstOrDefault(v => v.Placa == placa.ToUpper());
     }
 
     public void RemoverVeiculo()
