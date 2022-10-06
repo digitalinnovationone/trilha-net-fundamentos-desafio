@@ -23,9 +23,11 @@ namespace Tests
 
       estacionar.AdicionarVeiculo(placa, horaEntrada);
 
-      bool estacionado = estacionar.Veiculos.Any(v => v.Placa == placa.ToUpper());
+      bool estacionado = Estacionamento.Veiculos.Any(v => v.Placa == placa.ToUpper());
 
       Assert.AreEqual(true, estacionado);
+      
+      Estacionamento.Veiculos.Clear();
 
     }
 
@@ -47,6 +49,8 @@ namespace Tests
 
       Assert.AreEqual(placa.ToUpper(), veiculo.Placa);
       Assert.AreEqual(null, veiculo2);
+      
+      Estacionamento.Veiculos.Clear();
 
     }
 
@@ -64,11 +68,11 @@ namespace Tests
       Estacionamento estacionar = new Estacionamento(precoInicial, precoPorHora);
 
       Veiculo veiculo = new Veiculo(placa, 2);
-      estacionar.Veiculos.Add(veiculo);
+      Estacionamento.Veiculos.Add(veiculo);
 
       estacionar.RemoverVeiculo(veiculo, horaSaida);
 
-      estacionado = estacionar.Veiculos.Any(v => v.Placa == placa.ToUpper());
+      estacionado = Estacionamento.Veiculos.Any(v => v.Placa == placa.ToUpper());
       Assert.AreEqual(false, estacionado);
 
     }
