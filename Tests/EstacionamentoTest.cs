@@ -38,7 +38,6 @@ namespace Tests
       decimal precoPorHora = 4;
       string placa = "ebx-2121";
       int horaEntrada = 2;
-      bool estacionado;
 
       Estacionamento estacionar = new Estacionamento(precoInicial, precoPorHora);
 
