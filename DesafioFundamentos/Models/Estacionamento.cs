@@ -4,7 +4,7 @@ namespace DesafioFundamentos.Models
     {
         private decimal precoInicial = 0;
         private decimal precoPorHora = 0;
-        private List<string> veiculos = new List<string>();
+        List<Veiculo> veiculos = new List<Veiculo>();
 
         public Estacionamento(decimal precoInicial, decimal precoPorHora)
         {
@@ -14,34 +14,72 @@ namespace DesafioFundamentos.Models
 
         public void AdicionarVeiculo()
         {
-            // TODO: Pedir para o usuário digitar uma placa (ReadLine) e adicionar na lista "veiculos"
-            // *IMPLEMENTE AQUI*
-            Console.WriteLine("Digite a placa do veículo para estacionar:");
+            Console.Clear();
+            Console.Write("Digite a placa do veículo para estacionar: ");
+            string placa = Console.ReadLine();
+            char[] arrayPlaca = placa.ToArray();
+
+            if(string.IsNullOrEmpty(placa) || !arrayPlaca.Length.Equals(7)) 
+            {
+                Console.WriteLine("A placa deve ter 7 digitos,\n por favor tente novamente!\n");
+                return;
+            }
+
+            DateTime datahora = DateTime.Now;
+            Console.WriteLine($" Data e horário de entrada: {datahora}\n Apresente o ticket na saída.\n");
+
+            veiculos.Add(
+                new Veiculo
+                {
+                    Placa = placa.ToUpper(),
+                    DataHoraEntrada = datahora
+                }
+            );
         }
 
         public void RemoverVeiculo()
         {
-            Console.WriteLine("Digite a placa do veículo para remover:");
+            Console.Write("Digite a placa do veículo para remover: ");
+            
+            string placa = Console.ReadLine();
 
-            // Pedir para o usuário digitar a placa e armazenar na variável placa
-            // *IMPLEMENTE AQUI*
-            string placa = "";
-
-            // Verifica se o veículo existe
-            if (veiculos.Any(x => x.ToUpper() == placa.ToUpper()))
+            if (veiculos.Any(v => v.Placa == placa.ToUpper()))
             {
-                Console.WriteLine("Digite a quantidade de horas que o veículo permaneceu estacionado:");
+                Veiculo veiculo =  veiculos.FirstOrDefault(v => v.Placa == placa.ToUpper());
+                TimeSpan tempoDecorrido = DateTime.Now - veiculo.DataHoraEntrada;
 
-                // TODO: Pedir para o usuário digitar a quantidade de horas que o veículo permaneceu estacionado,
-                // TODO: Realizar o seguinte cálculo: "precoInicial + precoPorHora * horas" para a variável valorTotal                
-                // *IMPLEMENTE AQUI*
-                int horas = 0;
+                Console.WriteLine($"O veículo permaneceu estacionado por {tempoDecorrido}");
+
+                int horas = tempoDecorrido.Hours;
                 decimal valorTotal = 0; 
 
-                // TODO: Remover a placa digitada da lista de veículos
-                // *IMPLEMENTE AQUI*
+                if(horas == 0 && tempoDecorrido.Minutes < 15) 
+                {
+                    valorTotal = precoInicial + precoPorHora * 0.5m;
+                }
+                else 
+                {
+                    if(horas < 1)
+                    {
+                        valorTotal = precoInicial + precoPorHora;
+                    } 
+                    else
+                    {
+                        valorTotal = precoInicial + precoPorHora * horas;
+                    }
+                }
 
-                Console.WriteLine($"O veículo {placa} foi removido e o preço total foi de: R$ {valorTotal}");
+                try
+                {
+                    if(veiculos.Remove(veiculo))
+                    {
+                        Console.WriteLine($"O veículo {placa} foi removido e o preço total foi de: R$ {valorTotal:0.00}");
+                    }
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine($"Erro ao tentar remover o veículo {placa}\n{e}");   
+                }
             }
             else
             {
@@ -51,12 +89,15 @@ namespace DesafioFundamentos.Models
 
         public void ListarVeiculos()
         {
-            // Verifica se há veículos no estacionamento
             if (veiculos.Any())
             {
-                Console.WriteLine("Os veículos estacionados são:");
-                // TODO: Realizar um laço de repetição, exibindo os veículos estacionados
-                // *IMPLEMENTE AQUI*
+                Console.WriteLine("Os veículos estacionados são:\n");
+
+                Console.WriteLine("\tPlaca\t\tEntrada\t\t\tTempo Decorrido");
+                foreach(var veiculo in veiculos) 
+                {
+                    Console.WriteLine($"\t{veiculo.Placa}\t\t{veiculo.DataHoraEntrada}\t{DateTime.Now - veiculo.DataHoraEntrada}");
+                }
             }
             else
             {
