@@ -1,38 +1,29 @@
-# DIO - Trilha .NET - Fundamentos
-www.dio.me
 
-## Desafio de projeto
-Para este desafio, você precisará usar seus conhecimentos adquiridos no módulo de fundamentos, da trilha .NET da DIO.
+# Desafio Fundamentos
 
-## Contexto
-Você foi contratado para construir um sistema para um estacionamento, que será usado para gerenciar os veículos estacionados e realizar suas operações, como por exemplo adicionar um veículo, remover um veículo (e exibir o valor cobrado durante o período) e listar os veículos.
-
-## Proposta
-Você precisará construir uma classe chamada "Estacionamento", conforme o diagrama abaixo:
-![Diagrama de classe estacionamento](diagrama_classe_estacionamento.png)
-
-A classe contém três variáveis, sendo:
-
-**precoInicial**: Tipo decimal. É o preço cobrado para deixar seu veículo estacionado.
-
-**precoPorHora**: Tipo decimal. É o preço por hora que o veículo permanecer estacionado.
-
-**veiculos**: É uma lista de string, representando uma coleção de veículos estacionados. Contém apenas a placa do veículo.
-
-A classe contém três métodos, sendo:
-
-**AdicionarVeiculo**: Método responsável por receber uma placa digitada pelo usuário e guardar na variável **veiculos**.
-
-**RemoverVeiculo**: Método responsável por verificar se um determinado veículo está estacionado, e caso positivo, irá pedir a quantidade de horas que ele permaneceu no estacionamento. Após isso, realiza o seguinte cálculo: **precoInicial** * **precoPorHora**, exibindo para o usuário.
-
-**ListarVeiculos**: Lista todos os veículos presentes atualmente no estacionamento. Caso não haja nenhum, exibir a mensagem "Não há veículos estacionados".
-
-Por último, deverá ser feito um menu interativo com as seguintes ações implementadas:
-1. Cadastrar veículo
-2. Remover veículo
-3. Listar veículos
-4. Encerrar
+Um projeto que simula um sistema de gerenciamento de um estacionamento feito com o intuito de ser submetido à um desafio do bootcamp Programação C# com CRM Dynamics feito pela DIO:
+https://www.dio.me/bootcamp/coding-future-avanade-programacao-c-com-crm-dynamics
 
 
-## Solução
-O código está pela metade, e você deverá dar continuidade obedecendo as regras descritas acima, para que no final, tenhamos um programa funcional. Procure pela palavra comentada "TODO" no código, em seguida, implemente conforme as regras acima.
+
+## Melhorias
+
+No desafio, foi pedido algumas melhorias no código, tais como:
+
+-AO INCLUIR UM VEÍCULO-
+* Pedir para o usuário digitar uma placa (ReadLine) e adicionar na lista "veiculos".
+Para essa parte, eu criei uma verificação com Regex utilizando os dois padrões de placas brasileiras que existem atualmente (XXX-1111 ou XXX1X11). Caso a condição seja aceita, o sistema adiciona a placa na lista de veículos.
+
+-AO EXCLUIR UM VEÍCULO-
+* Pedir para o usuário digitar a placa e armazenar na variável placa.
+* Pedir para o usuário digitar a quantidade de horas que o veículo permaneceu estacionado.
+* Realizar o seguinte cálculo: "precoInicial + precoPorHora * horas" para a variável valorTotal.
+* Remover a placa digitada da lista de veículos
+Nessa parte, após armazenar a placa do veículo e fazer a verificação se o mesmo está dentro do estacionamento, criei uma solicitação para o usuário inserir a quantidade de horas que o veículo permaneceu estacionado, e também uma validação para saber se o valor digitado é realmente um número (utilizando TryParse). Caso as condições forem aceitas, o sistema remove a placa da lista de veículos.
+
+-AO LISTAr TODOS OS VEÍCULOS-
+* Realizar um laço de repetição, exibindo os veículos estacionados.
+Nesse ultimo passo, criei uma verificação se existe algum veículo na lista (usando .Any())
+Caso não tenha, é exibido uma mensagem de que o estacionamento está vazio.
+Caso tenha, um laço (foreach) imprime todos os veículos da lista no console.
+
