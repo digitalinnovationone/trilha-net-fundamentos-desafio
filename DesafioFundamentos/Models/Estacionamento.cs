@@ -1,3 +1,5 @@
+using System.ComponentModel;
+
 namespace DesafioFundamentos.Models
 {
     public class Estacionamento
@@ -17,6 +19,12 @@ namespace DesafioFundamentos.Models
             // TODO: Pedir para o usuário digitar uma placa (ReadLine) e adicionar na lista "veiculos"
             // *IMPLEMENTE AQUI*
             Console.WriteLine("Digite a placa do veículo para estacionar:");
+            string placaVeiculo = Console.ReadLine();
+            if(placaVeiculo != null)
+            {
+                veiculos.Add(placaVeiculo.ToUpper());
+                Console.WriteLine($"Placa do veiculo adicionada - {placaVeiculo.ToUpper()}");
+            }
         }
 
         public void RemoverVeiculo()
@@ -26,6 +34,8 @@ namespace DesafioFundamentos.Models
             // Pedir para o usuário digitar a placa e armazenar na variável placa
             // *IMPLEMENTE AQUI*
             string placa = "";
+            placa = Console.ReadLine();
+            placa = placa.ToUpper();
 
             // Verifica se o veículo existe
             if (veiculos.Any(x => x.ToUpper() == placa.ToUpper()))
@@ -37,9 +47,12 @@ namespace DesafioFundamentos.Models
                 // *IMPLEMENTE AQUI*
                 int horas = 0;
                 decimal valorTotal = 0; 
+                horas = int.Parse(Console.ReadLine());
+                valorTotal = precoInicial + precoPorHora * horas;
 
                 // TODO: Remover a placa digitada da lista de veículos
                 // *IMPLEMENTE AQUI*
+                veiculos.Remove(placa.ToUpper());
 
                 Console.WriteLine($"O veículo {placa} foi removido e o preço total foi de: R$ {valorTotal}");
             }
@@ -57,6 +70,13 @@ namespace DesafioFundamentos.Models
                 Console.WriteLine("Os veículos estacionados são:");
                 // TODO: Realizar um laço de repetição, exibindo os veículos estacionados
                 // *IMPLEMENTE AQUI*
+                int contaVeiculo = 0;
+
+                foreach (string item in veiculos)
+                {
+                    contaVeiculo++;
+                    Console.WriteLine($"Veiculo Nº{contaVeiculo} Placa - {item}");
+                }
             }
             else
             {
