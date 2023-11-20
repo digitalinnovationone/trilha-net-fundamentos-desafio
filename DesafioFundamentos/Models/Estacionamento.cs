@@ -1,3 +1,5 @@
+using System.ComponentModel;
+
 namespace DesafioFundamentos.Models
 {
     public class Estacionamento
@@ -57,6 +59,13 @@ namespace DesafioFundamentos.Models
                 Console.WriteLine("Os veículos estacionados são:");
                 // TODO: Realizar um laço de repetição, exibindo os veículos estacionados
                 // *IMPLEMENTE AQUI*
+                int contaVeiculo = 0;
+
+                foreach (string item in veiculos)
+                {
+                    contaVeiculo++;
+                    Console.WriteLine($"Veiculo Nº{contaVeiculo + 1} Placa - {item}");
+                }
             }
             else
             {
