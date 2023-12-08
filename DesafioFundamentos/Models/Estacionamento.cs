@@ -1,4 +1,3 @@
-
 namespace DesafioFundamentos.Models
 {
     public class Estacionamento
@@ -15,8 +14,6 @@ namespace DesafioFundamentos.Models
 
         public void AdicionarVeiculo()
         {
-            // TODO: Pedir para o usuário digitar uma placa (ReadLine) e adicionar na lista "veiculos"
-            // *IMPLEMENTE AQUI*
             Console.WriteLine("Digite a placa do veículo para estacionar:");
             string placa = Console.ReadLine();
             Veiculo veiculo = new Veiculo(placa);
@@ -32,8 +29,11 @@ namespace DesafioFundamentos.Models
             string placa = "";
 
             // Verifica se o veículo existe
-            if (veiculos.Any(v => v.Placa.Equals(placa))){
-                Console.WriteLine("Digite a quantidade de horas que o veículo permaneceu estacionado:");
+            if (veiculos.Any(v => v.Placa.Equals(placa)))
+            {
+                Console.WriteLine(
+                    "Digite a quantidade de horas que o veículo permaneceu estacionado:"
+                );
 
                 // TODO: Pedir para o usuário digitar a quantidade de horas que o veículo permaneceu estacionado,
                 // TODO: Realizar o seguinte cálculo: "precoInicial + precoPorHora * horas" para a variável valorTotal
@@ -59,15 +59,12 @@ namespace DesafioFundamentos.Models
         public void ListarVeiculos()
         {
             // Verifica se há veículos no estacionamento
-            if (veiculos.Any())
-            {
-                Console.WriteLine("Os veículos estacionados são:");
-                // TODO: Realizar um laço de repetição, exibindo os veículos estacionados
-                // *IMPLEMENTE AQUI*
-            }
-            else
-            {
+            if (veiculos.Count == 0)
                 Console.WriteLine("Não há veículos estacionados.");
+            else{
+                Console.WriteLine("Os veículos estacionados são:");
+                foreach (Veiculo veiculo in veiculos)
+                    Console.WriteLine(veiculo);
             }
         }
     }
