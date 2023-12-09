@@ -33,7 +33,7 @@ namespace DesafioFundamentos.Models
             }
             else
             {
-                Console.WriteLine($"Veículo Placa: {placa}, já está estacionado.");
+                Console.WriteLine($"Veículo de Placa: {placa}, já está estacionado.");
             }
         }
 
