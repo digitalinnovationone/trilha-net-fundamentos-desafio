@@ -1,3 +1,5 @@
+using System.Text.RegularExpressions;
+
 namespace DesafioFundamentos.Models
 {
     public class Estacionamento
@@ -19,8 +21,15 @@ namespace DesafioFundamentos.Models
 
             if (!veiculos.Contains(placa))
             {
-                veiculos.Add(placa);
-                Console.WriteLine("Veículo estacionado com sucesso!");
+                if (ValidarPlaca(placa))
+                {
+                    veiculos.Add(placa);
+                    Console.WriteLine("Placa válida! Veículo estacionado com sucesso!!");
+                }
+                else
+                {
+                    Console.WriteLine("A placa é inválida!");
+                }
             }
             else
             {
@@ -66,6 +75,15 @@ namespace DesafioFundamentos.Models
             {
                 Console.WriteLine("Não há veículos estacionados.");
             }
+        }
+
+        static bool ValidarPlaca(string placa)
+        {
+            // Padrão para placa de carro brasileira (XXX9999)
+            string padraoPlaca = @"^[A-Z]{3}\d{4}$";
+
+            Regex regexPlaca = new Regex(padraoPlaca);
+            return regexPlaca.IsMatch(placa);
         }
 
         public void Menu()
