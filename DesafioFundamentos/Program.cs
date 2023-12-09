@@ -12,4 +12,4 @@ decimal precoPorHora = decimal.Parse(Console.ReadLine());
 Estacionamento estacionamento = new Estacionamento(precoInicial, precoPorHora);
 estacionamento.Menu();
 
-Console.WriteLine("O programa se encerrou");
+Console.WriteLine("O programa se encerrou.");

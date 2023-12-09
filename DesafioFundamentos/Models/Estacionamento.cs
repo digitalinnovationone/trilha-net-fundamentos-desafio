@@ -14,26 +14,48 @@ namespace DesafioFundamentos.Models
             PrecoPorHora = precoPorHora;
         }
 
+        // public void AdicionarVeiculo()
+        // {
+        //     Console.Write("Digite a placa do veículo para estacionar: ");
+        //     string placa = Console.ReadLine();
+
+        //     if (!veiculos.Contains(placa))
+        //     {
+        //         if (ValidarPlaca(placa))
+        //         {
+        //             veiculos.Add(placa);
+        //             Console.WriteLine("Placa válida! Veículo estacionado com sucesso!!");
+        //         }
+        //         else
+        //         {
+        //             Console.WriteLine("A placa é inválida!");
+        //         }
+        //     }
+        //     else
+        //     {
+        //         Console.WriteLine($"Veículo de Placa: {placa}, já está estacionado.");
+        //     }
+        // }
+
         public void AdicionarVeiculo()
         {
             Console.Write("Digite a placa do veículo para estacionar: ");
             string placa = Console.ReadLine();
 
-            if (!veiculos.Contains(placa))
+            if (veiculos.Contains(placa))
             {
-                if (ValidarPlaca(placa))
-                {
-                    veiculos.Add(placa);
-                    Console.WriteLine("Placa válida! Veículo estacionado com sucesso!!");
-                }
-                else
-                {
-                    Console.WriteLine("A placa é inválida!");
-                }
+                Console.WriteLine($"Veículo de Placa: {placa}, já está estacionado.");
+                return;
+            }
+
+            if (ValidarPlaca(placa))
+            {
+                veiculos.Add(placa);
+                Console.WriteLine("Placa válida! Veículo estacionado com sucesso!!");
             }
             else
             {
-                Console.WriteLine($"Veículo de Placa: {placa}, já está estacionado.");
+                Console.WriteLine("A placa é inválida!");
             }
         }
 
