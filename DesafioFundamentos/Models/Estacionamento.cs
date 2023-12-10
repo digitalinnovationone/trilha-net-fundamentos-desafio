@@ -66,3 +66,6 @@ namespace DesafioFundamentos.Models
         }
     }
 }
+
+
+//finalmente consegui
