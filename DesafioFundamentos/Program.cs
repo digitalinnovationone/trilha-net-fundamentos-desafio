@@ -9,7 +9,7 @@ internal class Program
 
         decimal precoInicial = 0;
         decimal precoPorHora = 0;
-        /*
+    
 
                 Console.WriteLine(@"
 
@@ -27,7 +27,7 @@ internal class Program
         ███████╗██████╔╝░░░██║░░░██║░░██║╚█████╔╝██║╚█████╔╝██║░╚███║██║░░██║██║░╚═╝░██║███████╗██║░╚███║░░░██║░░░╚█████╔╝
         ╚══════╝╚═════╝░░░░╚═╝░░░╚═╝░░╚═╝░╚════╝░╚═╝░╚════╝░╚═╝░░╚══╝╚═╝░░╚═╝╚═╝░░░░░╚═╝╚══════╝╚═╝░░╚══╝░░░╚═╝░░░░╚════╝░
         ");
-        */
+        
 
         Console.WriteLine();
         Console.WriteLine("======= Seja bem vindo! ========");
