@@ -1,54 +1,48 @@
-﻿using DesafioFundamentos.Models;
+﻿// PARKING MANAGEMENT
 
-// Coloca o encoding para UTF8 para exibir acentuação
-Console.OutputEncoding = System.Text.Encoding.UTF8;
+using DesafioFundamentos.Models;
+Console.Clear();
 
-decimal precoInicial = 0;
-decimal precoPorHora = 0;
-
-Console.WriteLine("Seja bem vindo ao sistema de estacionamento!\n" +
-                  "Digite o preço inicial:");
-precoInicial = Convert.ToDecimal(Console.ReadLine());
+Console.WriteLine("Digite o preço inicial:");
+decimal Preco_In = Convert.ToDecimal(Console.ReadLine());
+//Console.WriteLine(Preco_In);
 
 Console.WriteLine("Agora digite o preço por hora:");
-precoPorHora = Convert.ToDecimal(Console.ReadLine());
+decimal Preco_PH = Convert.ToDecimal(Console.ReadLine());
+//Console.WriteLine(Preco_PH);
 
-// Instancia a classe Estacionamento, já com os valores obtidos anteriormente
-Estacionamento es = new Estacionamento(precoInicial, precoPorHora);
+Parking par = new Parking(Preco_In, Preco_PH);
+byte flag = 0x01; // Flag to determinate the while statement
 
-string opcao = string.Empty;
-bool exibirMenu = true;
-
-// Realiza o loop do menu
-while (exibirMenu)
+while(flag==1)
 {
     Console.Clear();
     Console.WriteLine("Digite a sua opção:");
     Console.WriteLine("1 - Cadastrar veículo");
     Console.WriteLine("2 - Remover veículo");
-    Console.WriteLine("3 - Listar veículos");
+    Console.WriteLine("3 - Listar veículo");
     Console.WriteLine("4 - Encerrar");
 
-    switch (Console.ReadLine())
+    switch(Convert.ToByte(Console.ReadLine()))
     {
-        case "1":
-            es.AdicionarVeiculo();
+        case 1:
+            par.Register();
             break;
 
-        case "2":
-            es.RemoverVeiculo();
+        case 2:
+            par.Remove();
             break;
 
-        case "3":
-            es.ListarVeiculos();
+        case 3:
+            par.Show();
             break;
 
-        case "4":
-            exibirMenu = false;
+        case 4:
+            flag &= 0x00; // disable the flag of while statement
             break;
 
         default:
-            Console.WriteLine("Opção inválida");
+            Console.WriteLine("Opção Inválida");
             break;
     }
 
@@ -56,4 +50,3 @@ while (exibirMenu)
     Console.ReadLine();
 }
 
-Console.WriteLine("O programa se encerrou");
