@@ -40,6 +40,10 @@ while(flag==1)
         case 4:
             flag &= 0x00; // disable the flag of while statement
             break;
+
+        default:
+            Console.WriteLine("Opção Inválida");
+            break;
     }
 
     Console.WriteLine("Pressione uma tecla para continuar");
