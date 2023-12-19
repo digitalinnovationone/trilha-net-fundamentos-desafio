@@ -35,4 +35,22 @@ Por último, deverá ser feito um menu interativo com as seguintes ações imple
 
 
 ## Solução
-O código está pela metade, e você deverá dar continuidade obedecendo as regras descritas acima, para que no final, tenhamos um programa funcional. Procure pela palavra comentada "TODO" no código, em seguida, implemente conforme as regras acima.
+Este código representa uma classe chamada `Estacionamento` no namespace `DesafioFundamentos.Models`. A classe é responsável por gerenciar um estacionamento, mantendo informações sobre o preço inicial, preço por hora, e os veículos estacionados. Aqui está uma descrição concisa de cada parte do código:
+
+1. **Campos Privados:**
+   - `precoInicial`: Armazena o preço inicial de estacionamento.
+   - `precoPorHora`: Armazena o preço por hora de estacionamento.
+   - `veiculos`: Um dicionário que mapeia placas de veículos a nomes dos condutores.
+
+2. **Construtor:**
+   - `public Estacionamento(decimal precoInicial, decimal precoPorHora)`: Inicializa a instância da classe com os preços iniciais fornecidos.
+
+3. **Métodos Públicos:**
+   - `public void AdicionarVeiculo()`: Solicita ao usuário a placa e o nome do condutor para adicionar um veículo ao estacionamento.
+   - `public void RemoverVeiculo()`: Solicita ao usuário a placa do veículo a ser removido, verifica se o veículo está estacionado, calcula o preço com base nas horas de permanência e o remove da lista de veículos.
+   - `public void ListarVeiculos()`: Lista os veículos estacionados, exibindo suas placas e os nomes dos condutores.
+
+4. **Método Privado:**
+   - `private decimal CalcularPreco(int horasPermanencia)`: Calcula o preço total com base no tempo de permanência e os preços configurados.
+
+O código faz uso de estruturas de controle de fluxo, como loops e condicionais, e interage com o usuário por meio da classe `Console`. Além disso, utiliza coleções como o dicionário (`Dictionary`) para armazenar informações sobre os veículos estacionados.
