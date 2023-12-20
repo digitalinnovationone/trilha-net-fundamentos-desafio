@@ -1,11 +1,12 @@
+using System;
 using System.Text.RegularExpressions;
 
 namespace DesafioFundamentos.Models
 {
     public class Estacionamento
     {
-        private decimal PrecoInicial = 0;
-        private decimal PrecoPorHora = 0;
+        private decimal PrecoInicial { get; set; }    
+        private decimal PrecoPorHora { get; set; }
         private List<string> veiculos = new List<string>();
 
         public Estacionamento(decimal precoInicial, decimal precoPorHora)
@@ -14,7 +15,7 @@ namespace DesafioFundamentos.Models
             PrecoPorHora = precoPorHora;
         }
 
-        public void AdicionarVeiculo()
+        private void AdicionarVeiculo()
         {
             Console.Write("Digite a placa do veículo para estacionar: ");
             string placa = Console.ReadLine();
@@ -28,15 +29,15 @@ namespace DesafioFundamentos.Models
             if (ValidarPlaca(placa))
             {
                 veiculos.Add(placa);
-                Console.WriteLine("Placa válida! Veículo estacionado com sucesso!!");
+                Console.WriteLine("A placa informada é válida! \nVeículo estacionado com sucesso!!");
             }
             else
             {
-                Console.WriteLine("A placa é inválida!");
+                Console.WriteLine("A placa informada NÃO é válida!");
             }
         }
 
-        public void RemoverVeiculo()
+        private void RemoverVeiculo()
         {
             Console.Write("Digite a placa do veículo para remover: ");
             string placa = Console.ReadLine();
@@ -57,17 +58,17 @@ namespace DesafioFundamentos.Models
             }
         }
 
-        public void ListarVeiculos()
+        private void ListarVeiculos()
         {
             if (veiculos.Any())
             {
                 Console.WriteLine("Os veículos estacionados são:");
 
-                int contaVeiculo = 1;
+                int contadorVeiculo = 1;
                 foreach (var veiculo in veiculos)
                 {
-                    Console.WriteLine($"Vaga {contaVeiculo} - Veículo de Placa: {veiculo} está estacionado!");
-                    contaVeiculo++;
+                    Console.WriteLine($"Vaga {contadorVeiculo} - Veículo de Placa: {veiculo.ToUpper()} está estacionado!");
+                    contadorVeiculo++;
                 }
             }
             else
@@ -76,13 +77,32 @@ namespace DesafioFundamentos.Models
             }
         }
 
-        static bool ValidarPlaca(string placa)
+        private static bool ValidarPlaca(string placa)
         {
-            // Padrão para placa de carro brasileira (XXX9999)
-            string padraoPlaca = @"^[A-Z]{3}\d{4}$";
+            if (string.IsNullOrWhiteSpace(placa)) { return false; }
 
-            Regex regexPlaca = new Regex(padraoPlaca);
-            return regexPlaca.IsMatch(placa);
+            if (placa.Length > 8) { return false; }
+
+            placa = placa.Replace("-", "").Trim();
+
+            /*
+                Verifica se o caractere da posição 4 é uma letra, se sim, aplica a validação para o formato de placa do Mercosul,
+                senão, aplica a validação do formato de placa padrão normal.
+             */
+            if (char.IsLetter(placa, 4))
+            {
+                //Verifica se a placa está no formato: três letras, um número, uma letra e dois números.
+                // Padrão de Placa do Mercosul --> DVA-8F14
+                var padraoMercosul = new Regex("[a-zA-Z]{3}[0-9]{1}[a-zA-Z]{1}[0-9]{2}");
+                return padraoMercosul.IsMatch(placa);
+            }
+            else
+            {
+                // Verifica se os 3 primeiros caracteres são letras e se os 4 últimos são números.
+                // Padrão de Placa Normal --> BQD-7012
+                var padraoNormal = new Regex("[a-zA-Z]{3}[0-9]{4}");
+                return padraoNormal.IsMatch(placa);
+            }
         }
 
         public void Menu()
