@@ -6,11 +6,12 @@ Console.OutputEncoding = System.Text.Encoding.UTF8;
 decimal precoInicial = 0;
 decimal precoPorHora = 0;
 
-Console.WriteLine("Seja bem vindo ao sistema de estacionamento!\n" +
-                  "Digite o preço inicial:");
+Console.Clear();        // Adicionada para limpar a tela no início do programa
+Console.Write("Seja bem vindo ao sistema de estacionamento\n" +
+                  "Digite o preço inicial: ");      // Modificado de WriteLine para Write
 precoInicial = Convert.ToDecimal(Console.ReadLine());
 
-Console.WriteLine("Agora digite o preço por hora:");
+Console.Write("Agora digite o preço por hora: ");      // Modificado de WriteLine para Write
 precoPorHora = Convert.ToDecimal(Console.ReadLine());
 
 // Instancia a classe Estacionamento, já com os valores obtidos anteriormente
@@ -52,8 +53,8 @@ while (exibirMenu)
             break;
     }
 
-    Console.WriteLine("Pressione uma tecla para continuar");
+    Console.Write("\nPressione uma tecla para continuar");      // Modificado de WriteLine para Write
     Console.ReadLine();
 }
 
-Console.WriteLine("O programa se encerrou");
+Console.WriteLine("O programa se encerrou\n");
