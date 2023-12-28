@@ -1,0 +1,26 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            // Usar o IntelliSense para descobrir quais atributos existem para a depuração de C#
+            // Passe o mouse sobre a tela para ver a descrição dos atributos existentes
+            // Para obter mais informações, acesse https://github.com/dotnet/vscode-csharp/blob/main/debugger-launchjson.md
+            "name": ".NET Core Launch (console)",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            // Se tiver alterado as estruturas de destino, certifique-se de atualizar o caminho do programa.
+            "program": "${workspaceFolder}/DesafioFundamentos/bin/Debug/net6.0/DesafioFundamentos.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/DesafioFundamentos",
+            // Para obter mais informações sobre o campo \"console\", confira https://aka.ms/VSCode-CS-LaunchJson-Console
+            "console": "internalConsole",
+            "stopAtEntry": false
+        },
+        {
+            "name": ".NET Core Attach",
+            "type": "coreclr",
+            "request": "attach"
+        }
+    ]
+}
