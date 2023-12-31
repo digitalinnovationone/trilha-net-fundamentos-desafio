@@ -1,15 +1,43 @@
-﻿using DesafioFundamentos.Models;
+﻿using Services;
 
-Console.OutputEncoding = System.Text.Encoding.UTF8;
+class Program
+{
+    public static void Main(string[] args)
+    {
+        bool exibirMenu = true;
+        while (exibirMenu)
+        {
+            Console.Clear();
+            Console.WriteLine("Bem-vindo ao Gerenciador de Veículos!");
+            Console.WriteLine("Escolha uma opção:");
+            Console.WriteLine("1 - Adicionar um novo veículo");
+            Console.WriteLine("2 - Remover um veículo existente");
+            Console.WriteLine("3 - Listar todos os veículos");
+            Console.WriteLine("4 - Encerrar o programa");
+            Console.Write("Opção: ");
 
-Console.Write("Seja bem vindo ao sistema de estacionamento!\n" +
-                    "Digite o preço inicial: ");
-decimal precoInicial = decimal.Parse(Console.ReadLine());
+            switch (Console.ReadLine())
+            {
+                case "1":
+                    VeiculoService.AdicionarVeiculo();
+                    break;
+                case "2":
+                    VeiculoService.RemoverVeiculo();
+                    break;
+                case "3":
+                    VeiculoService.ListarVeiculos();
+                    break;
+                case "4":
+                    exibirMenu = false;
+                    break;
+                default:
+                    Console.WriteLine("Opção inválida");
+                    break;
+            }
 
-Console.Write("Agora digite o preço por hora: ");
-decimal precoPorHora = decimal.Parse(Console.ReadLine());
-
-Estacionamento estacionamento = new Estacionamento(precoInicial, precoPorHora);
-estacionamento.Menu();
-
-Console.WriteLine("O programa se encerrou.");
+            Console.WriteLine("Pressione uma tecla para continuar");
+            Console.ReadKey();
+            Console.WriteLine("O programa encerarar em segundos.");
+        }
+    }
+}
