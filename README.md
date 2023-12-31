@@ -39,3 +39,38 @@ a quantidade de horas que ele permaneceu no estacionamento. Após isso, realiza 
 
 ## Solução
 O código está pela metade, e você deverá dar continuidade obedecendo as regras descritas acima, para que no final, tenhamos um programa funcional. Procure pela palavra comentada "TODO" no código, em seguida, implemente conforme as regras acima.
+
+## Ferramentas utilizadas 
+
+- [C#](https://learn.microsoft.com/pt-br/dotnet/csharp/tour-of-csharp/)
+- [.NET](https://dotnet.microsoft.com/pt-br/learn/dotnet/what-is-dotnet)
+- [Visual Studio Code](https://code.visualstudio.com)
+
+## Serviços Usados
+
+- [Github](https://github.com/)
+
+## Como Usar
+
+- É necessário ter o visual studio e o .NET 6 instalado.
+
+- Clone o repositório com o comando:
+    ```
+      git https://github.com/JoseCMessias/estacionamento-desafio.git
+    ```
+- Instale o npm no projeto dentro da pasta api-veiculos:
+     ```
+       cd estacionamento-desafio
+     ```
+- Execute o projeto com o comando:
+    ```
+       dotnet run
+     ```
+
+## Características 
+
+Características do projeto:
+- Estácionar um veículo
+- Listar os veículo
+- Excluir um Veículo
+- Calcular o valor por tempo estacionado
