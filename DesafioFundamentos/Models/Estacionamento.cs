@@ -4,9 +4,9 @@ namespace DesafioFundamentos.Models
 {
     public class Estacionamento
     {
-        private decimal precoInicial = 0;
-        private decimal precoPorHora = 0;
-        private List<string> veiculos = new List<string>();
+        private readonly decimal precoInicial = 0;
+        private readonly decimal precoPorHora = 0;
+        private readonly List<string> veiculos = new List<string>();
 
         public Estacionamento(decimal precoInicial, decimal precoPorHora)
         {
@@ -42,12 +42,12 @@ namespace DesafioFundamentos.Models
             string placa = Console.ReadLine().ToUpper();
 
             // Verifica se o veículo existe
-            if (veiculos.Any(x => x == placa))
+            if (veiculos.Contains(placa))
             {
                 
-                int horas = 0;
-                string userInput = "";
-                bool isInteger = false;
+                int horas;
+                string userInput;
+                bool isInteger;
                 
                 // Pergunta ao usuário até ele digitar uma quantidade de horas válida
                 Console.WriteLine("Digite a quantidade de horas que o veículo permaneceu estacionado:");
