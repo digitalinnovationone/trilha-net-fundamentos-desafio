@@ -56,12 +56,13 @@ O código está pela metade, e você deverá dar continuidade obedecendo as regr
 
 - Clone o repositório com o comando:
     ```
-      git https://github.com/JoseCMessias/estacionamento-desafio.git
+      git clone https://github.com/JoseCMessias/estacionamento-desafio.git
     ```
-- Instale o npm no projeto dentro da pasta api-veiculos:
+- Entre na pasta do projeto:
      ```
        cd estacionamento-desafio
      ```
+- Abra o terminal do Visual Studio Code
 - Execute o projeto com o comando:
     ```
        dotnet run
@@ -70,7 +71,7 @@ O código está pela metade, e você deverá dar continuidade obedecendo as regr
 ## Características 
 
 Características do projeto:
-- Estácionar um veículo
+- Estacionar um veículo
 - Listar os veículo
 - Excluir um Veículo
 - Calcular o valor por tempo estacionado
