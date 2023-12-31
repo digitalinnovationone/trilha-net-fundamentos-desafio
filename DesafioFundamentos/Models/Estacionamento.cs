@@ -54,14 +54,16 @@ namespace DesafioFundamentos.Models
                 do
                 {
                     userInput = Console.ReadLine();
-
-                    isInteger = StringUtils.IsInteger(userInput);
+                    
+                    // verificar se é uma quantidade não negativa
+                    isInteger = StringUtils.IsNonNegativeInteger(userInput);
 
                     if (!isInteger)
                     {
                         Console.WriteLine("O Valor informado é inválido!");
                         Console.WriteLine("Digite uma quantidade de horas válida:");
                     }
+
                 } while (!isInteger);
 
                 horas = int.Parse(userInput);

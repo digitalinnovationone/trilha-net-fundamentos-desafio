@@ -14,6 +14,17 @@ namespace DesafioFundamentos.util
             return int.TryParse(input, out _);
         }
 
+    public static bool IsNonNegativeInteger(string input)
+    {
+        if (int.TryParse(input, out int parsedValue))
+        {
+            // Verifica se o valor é não negativo
+            return parsedValue >= 0;
+        }
+
+        return false; // A string não representa um número inteiro
+    }
+
         public static bool IsPlacaValida(string placaVeiculo)
         {
             // Padrões para placas de veículo brasileiras: ABC1D23 ou ABC1234
