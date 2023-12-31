@@ -1,5 +1,10 @@
-# DIO - Trilha .NET - Fundamentos
-www.dio.me
+<h1 align="center">
+  <img width="1000" alt="API-VEICULOS-GITHUB" src="https://github.com/JoseCMessias/estacionamento-desafio/assets/104660308/a8aaa0fa-174e-4e58-b69d-a2b0b909ed2e">
+  </br>
+  <p>DIO - Trilha .NET - Fundamentos</p>
+</h1>
+
+[SITE DA DIO](https://web.dio.me/)
 
 ## Desafio de projeto
 Para este desafio, você precisará usar seus conhecimentos adquiridos no módulo de fundamentos, da trilha .NET da DIO.
