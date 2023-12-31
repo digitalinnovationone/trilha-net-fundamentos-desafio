@@ -14,7 +14,7 @@ Você foi contratado para construir um sistema para um estacionamento, que será
 ## Proposta
 Você precisará construir uma classe chamada "Estacionamento", conforme o diagrama abaixo:
 <h1 align="center"> 
-  <img width="1000" alt="Diagrama de classe estacionamento" src="diagrama_classe_estacionamento.png">
+  <img width="1000" alt="Diagrama de classe estacionamento" src="image/diagrama_classe_estacionamento.png">
   </br>
 </h1>
 
