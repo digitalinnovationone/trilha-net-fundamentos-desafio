@@ -1,7 +1,5 @@
 <h1 align="center">
-  <img width="1000" alt="Grenciador de Estacionamento" src="https://github.com/JoseCMessias/estacionamento-desafio/assets/104660308/a8aaa0fa-174e-4e58-b69d-a2b0b909ed2e">
-  </br>
-  <p>DIO - Trilha .NET - Fundamentos</p>
+  <img width="1000" alt="Grenciador de Estacionamento" src="https://github.com/JoseCMessias/estacionamento-desafio/assets/104660308/58f2d915-4977-4f57-a851-9e442e3ecc6a">
   </br>
 </h1>
 
