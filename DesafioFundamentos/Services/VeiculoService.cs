@@ -9,6 +9,7 @@ namespace Services
         public static void AdicionarVeiculo()
         {
             // Solicita ao usuário que digite a placa do veículo
+            Console.Clear();
             Console.Write("Digite a placa do veículo para estacionar: ");
             string placa = Console.ReadLine().ToUpper();
 
@@ -35,12 +36,19 @@ namespace Services
             {
                 Console.WriteLine("A placa informada NÃO é válida!");
             }
+
+            // Exibe um loop para adicionar ou não outro veículo
+            Console.ReadKey();
+            Console.Clear();
+            MenuCase menuCase = new MenuCase();
+            menuCase.ExibirMenuCase();
         }
 
         // Método para remover um veículo do estacionamento
         public static void RemoverVeiculo()
         {
             // Solicita ao usuário que digite a placa do veículo a ser removido
+            Console.Clear();
             Console.Write("Digite a placa do veículo para remover: ");
             string placa = Console.ReadLine().ToUpper();
 
@@ -67,6 +75,12 @@ namespace Services
             {
                 Console.WriteLine("Desculpe, esse veículo não está estacionado aqui. Confira se digitou a placa corretamente");
             }
+
+            // Exibe um loop para Remover ou não outro veículo
+            Console.ReadKey();
+            Console.Clear();
+            MenuCase menuCase = new MenuCase();
+            menuCase.ExibirMenuCase();
         }
 
         // Método para listar todos os veículos estacionados
@@ -78,6 +92,7 @@ namespace Services
             // Verifica se há veículos estacionados
             if (veiculos.Any())
             {
+                Console.Clear();
                 Console.WriteLine("Os veículos estacionados são:");
 
                 // Itera sobre os veículos e exibe suas informações
