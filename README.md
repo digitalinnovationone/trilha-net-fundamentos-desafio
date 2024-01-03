@@ -45,7 +45,7 @@ O código está pela metade, e você deverá dar continuidade obedecendo as regr
 - [C#](https://learn.microsoft.com/pt-br/dotnet/csharp/tour-of-csharp/)
 - [.NET](https://dotnet.microsoft.com/pt-br/learn/dotnet/what-is-dotnet)
 - [Visual Studio Code](https://code.visualstudio.com)
-- - [Trello do Projeto](https://trello.com/b/QklyygDj/gerenciador-de-estacionamento)
+- [Trello do Projeto](https://trello.com/b/QklyygDj/gerenciador-de-estacionamento)
 
 ## Serviços Usados
 
