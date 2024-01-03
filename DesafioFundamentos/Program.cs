@@ -37,7 +37,9 @@ class Program
 
             Console.WriteLine("Pressione uma tecla para continuar");
             Console.ReadKey();
-            Console.WriteLine("O programa encerarar em segundos.");
         }
+        Console.WriteLine("Programa se encerará em 5 segundos...");
+        Thread.Sleep(5000);
+        Console.WriteLine("Programa encerrado. \nObrigado por usar os nossos serviços!");
     }
 }
