@@ -32,7 +32,7 @@ namespace DesafioFundamentos.Models
                         break;
                     case "4":
                         ExibirCancelarPrograma();
-                         Environment.Exit(0);
+                        Environment.Exit(0);
                         break;
                     default:
                         Console.WriteLine("Opção inválida");
