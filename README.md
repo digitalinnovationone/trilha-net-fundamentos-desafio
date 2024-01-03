@@ -49,6 +49,7 @@ O código está pela metade, e você deverá dar continuidade obedecendo as regr
 ## Serviços Usados
 
 - [Github](https://github.com/)
+- [Trello do Projeto](https://trello.com/b/QklyygDj/gerenciador-de-estacionamento)
 
 ## Como Usar
 
