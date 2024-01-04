@@ -2,7 +2,6 @@ using Services;
 
 namespace DesafioFundamentos.Models
 {
-    //
     public class Menu
     {
         public static void ExibirMenu()
@@ -13,10 +12,10 @@ namespace DesafioFundamentos.Models
                 Console.Clear();
                 Console.WriteLine("Bem-vindo ao Gerenciador de Veículos!");
                 Console.WriteLine("Escolha uma opção:");
-                Console.WriteLine("1 - Adicionar um novo veículo");
-                Console.WriteLine("2 - Remover um veículo existente");
-                Console.WriteLine("3 - Listar todos os veículos");
-                Console.WriteLine("4 - Encerrar o programa");
+                Console.WriteLine("1 - Adicionar um Novo Veículo");
+                Console.WriteLine("2 - Remover um Veículo Existente");
+                Console.WriteLine("3 - Listar todos os Veículos");
+                Console.WriteLine("4 - Encerrar o Programa");
                 Console.Write("Opção: ");
 
                 switch (Console.ReadLine())
@@ -50,9 +49,9 @@ namespace DesafioFundamentos.Models
             {
                 Console.Clear();
                 Console.WriteLine("Escolha uma opção:");
-                Console.WriteLine("1 - Adicionar um novo veículo");
-                Console.WriteLine("2 - Remover um veículo existente");
-                Console.WriteLine("3 - Voltar");
+                Console.WriteLine("1 - Adicionar um Novo Veículo");
+                Console.WriteLine("2 - Remover um Veículo Existente");
+                Console.WriteLine("3 - Voltar p/ o Menu Principal");
                 Console.Write("Opção: ");
 
                 Menu menu = new Menu();
