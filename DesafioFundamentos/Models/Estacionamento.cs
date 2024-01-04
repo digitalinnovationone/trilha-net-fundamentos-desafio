@@ -1,14 +1,16 @@
 using System.Diagnostics;
 using ClosedXML.Excel;
+using DocumentFormat.OpenXml.Office2010.Excel;
 
 namespace DesafioFundamentos.Models
 {
     public class Estacionamento
     {
+        Veiculo veiculo = new Veiculo();
         private decimal precoInicial = 0;
         private decimal precoPorHora = 0;
         private List<string> veiculos = new List<string>();
-        Veiculo veiculo = new Veiculo();
+
         public void RemoverVeiculo()
         {
             Console.WriteLine("Digite a placa do veículo para remover:");
@@ -72,6 +74,7 @@ namespace DesafioFundamentos.Models
                 worksheet.Cell("E1").Value = "PLACA";
                 worksheet.Cell("F1").Value = "SENHA";
                 worksheet.Cell("G1").Value = "PLANO";
+                worksheet.Cell("H1").Value = "VALOR TOTAL";
 
 
                 Console.WriteLine("Insira os nomes (digite 'sair' para parar):");
@@ -107,32 +110,16 @@ namespace DesafioFundamentos.Models
                 for (int i = 0; i < veiculo.Id.Count; i++)
                 {
                     worksheet.Cell(i + 2, 1).Value = veiculo.Id[i];
-                }
-                for (int i = 0; i < veiculo.Nome.Count; i++)
-                {
                     worksheet.Cell(i + 2, 2).Value = veiculo.Nome[i];
-                }
-                for (int i = 0; i < veiculo.CPF.Count; i++)
-                {
                     worksheet.Cell(i + 2, 3).Value = veiculo.CPF[i];
-                }
-                for (int i = 0; i < veiculo.CNH.Count; i++)
-                {
                     worksheet.Cell(i + 2, 4).Value = veiculo.CNH[i];
-                }
-                for (int i = 0; i < veiculo.Placa.Count; i++)
-                {
                     worksheet.Cell(i + 2, 5).Value = veiculo.Placa[i];
-                }
-                for (int i = 0; i < veiculo.Senha.Count; i++)
-                {
+                    worksheet.Cell(i + 2, 5).Value = veiculo.Placa[i];
                     worksheet.Cell(i + 2, 6).Value = veiculo.Senha[i];
-                }
-                for (int i = 0; i < veiculo.Plano.Count; i++)
-                {
                     worksheet.Cell(i + 2, 7).Value = veiculo.Plano[i];
                 }
-
+                
+                worksheet.Cell("H2").FormulaA1 = "=SUM(G2:G20)";
                 workbook.SaveAs(@"C:\Temp\TestesExel.xlsx");
 
             }
@@ -152,72 +139,56 @@ namespace DesafioFundamentos.Models
                 worksheet.Cell("E1").Value = "PLACA";
                 worksheet.Cell("F1").Value = "SENHA";
                 worksheet.Cell("G1").Value = "PLANO";
+                worksheet.Cell("H1").Value = "VALOR TOTAL";
 
-                List<string> Id = new List<string>
+
+                veiculo.Id.AddRange(new List<string>
         {
             "ID001", "ID002", "ID003", "ID004", "ID005", "ID006", "ID007", "ID008", "ID009", "ID010"
-        };
-
-                List<string> Nome = new List<string>
+        });
+                veiculo.Nome.AddRange(new List<string>
         {
             "Alice", "Bob", "Charlie", "David", "Eva", "Frank", "Grace", "Hank", "Isabel", "Jack"
-        };
+        });
 
-                List<string> CPF = new List<string>
+                veiculo.CPF.AddRange(new List<string>
         {
             "111.111.111-11", "222.222.222-22", "333.333.333-33", "444.444.444-44", "555.555.555-55",
             "666.666.666-66", "777.777.777-77", "888.888.888-88", "999.999.999-99", "000.000.000-00"
-        };
+        });
 
-                List<string> CNH = new List<string>
+                veiculo.CNH.AddRange(new List<string>
         {
             "CNH001", "CNH002", "CNH003", "CNH004", "CNH005", "CNH006", "CNH007", "CNH008", "CNH009", "CNH010"
-        };
+        });
 
-                List<string> Placa = new List<string>
+               veiculo.Placa.AddRange(new List<string>
         {
             "ABC123", "DEF456", "GHI789", "JKL012", "MNO345", "PQR678", "STU901", "VWX234", "YZA567", "BCD890"
-        };
+        });
 
-                List<string> Senha = new List<string>
+                veiculo.Senha.AddRange(new List<string>
         {
             "senha1", "senha2", "senha3", "senha4", "senha5", "senha6", "senha7", "senha8", "senha9", "senha10"
-        };
+        });
 
-                List<int> Plano = new List<int>
+                veiculo.Plano.AddRange(new List<int>
                 { 100, 200, 300, 100, 200, 300, 100, 200, 300, 100
 
-                };
-
-                for (int i = 0; i < veiculo.Id.Count; i++)
+                });
+                 for (int i = 0; i < veiculo.Id.Count; i++)
                 {
                     worksheet.Cell(i + 2, 1).Value = veiculo.Id[i];
-                }
-                for (int i = 0; i < veiculo.Nome.Count; i++)
-                {
                     worksheet.Cell(i + 2, 2).Value = veiculo.Nome[i];
-                }
-                for (int i = 0; i < veiculo.CPF.Count; i++)
-                {
                     worksheet.Cell(i + 2, 3).Value = veiculo.CPF[i];
-                }
-                for (int i = 0; i < veiculo.CNH.Count; i++)
-                {
                     worksheet.Cell(i + 2, 4).Value = veiculo.CNH[i];
-                }
-                for (int i = 0; i < veiculo.Placa.Count; i++)
-                {
                     worksheet.Cell(i + 2, 5).Value = veiculo.Placa[i];
-                }
-                for (int i = 0; i < veiculo.Senha.Count; i++)
-                {
+                    worksheet.Cell(i + 2, 5).Value = veiculo.Placa[i];
                     worksheet.Cell(i + 2, 6).Value = veiculo.Senha[i];
-                }
-                for (int i = 0; i < veiculo.Plano.Count; i++)
-                {
                     worksheet.Cell(i + 2, 7).Value = veiculo.Plano[i];
                 }
-
+                
+                worksheet.Cell("H2").FormulaA1 = "=SUM(G2:G20)";
                 workbook.SaveAs(@"C:\Temp\TestesExel.xlsx");
 
             }
