@@ -55,6 +55,7 @@ public class Veiculo
 
     public Veiculo()
     {
-        // Nenhum parâmetro necessário, inicializamos as listas por padrão
+       
+       
     }
 }
