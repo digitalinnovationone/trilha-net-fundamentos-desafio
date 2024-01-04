@@ -39,7 +39,7 @@ a quantidade de horas que ele permaneceu no estacionamento. Após isso, realiza 
 3. **Listar todos os Veículos**
 4. **Encerrar o Programa**
 
-## Deverá ser feito um menu interativo que se comunica com o menu anterior, com as seguintes ações implementadas:
+## Deverá ser feito um menu interativo que se comunica com o menu principal, com as seguintes ações implementadas:
 1. **Adicionar um Novo Veículo**
 2. **Remover um Veículo Existente**
 3. **Voltar p/ o Menu Principal**
