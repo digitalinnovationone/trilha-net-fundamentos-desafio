@@ -40,8 +40,7 @@ namespace Services
             // Exibe um loop para adicionar ou não outro veículo
             Console.ReadKey();
             Console.Clear();
-            MenuCase menuCase = new MenuCase();
-            menuCase.ExibirMenuCase();
+            Menu.ExibirMenuCase();
         }
 
         // Método para remover um veículo do estacionamento
@@ -61,7 +60,6 @@ namespace Services
             // Verifica se o veículo está estacionado
             if (veiculo != null)
             {
-                // Solicita ao usuário a quantidade de horas que o veículo permaneceu estacionado
                 Console.Write("Digite a quantidade de horas que o veículo permaneceu estacionado: ");
                 int horas = int.Parse(Console.ReadLine());
 
@@ -79,8 +77,7 @@ namespace Services
             // Exibe um loop para Remover ou não outro veículo
             Console.ReadKey();
             Console.Clear();
-            MenuCase menuCase = new MenuCase();
-            menuCase.ExibirMenuCase();
+            Menu.ExibirMenuCase();
         }
 
         // Método para listar todos os veículos estacionados

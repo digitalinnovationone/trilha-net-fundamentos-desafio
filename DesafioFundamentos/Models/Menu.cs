@@ -2,10 +2,10 @@ using Services;
 
 namespace DesafioFundamentos.Models
 {
-    // Classe de exibição do menu
+    //
     public class Menu
     {
-        public void ExibirMenu()
+        public static void ExibirMenu()
         {
             bool exibirMenu = true;
             while (exibirMenu)
@@ -38,12 +38,43 @@ namespace DesafioFundamentos.Models
                         Console.WriteLine("Opção inválida");
                         break;
                 }
+                
                 Console.WriteLine("Pressione uma tecla para continuar");
                 Console.ReadKey();
             }
         }
 
-        private void ExibirCancelarPrograma()
+        public static void ExibirMenuCase()
+        {
+            while(true)
+            {
+                Console.Clear();
+                Console.WriteLine("Escolha uma opção:");
+                Console.WriteLine("1 - Adicionar um novo veículo");
+                Console.WriteLine("2 - Remover um veículo existente");
+                Console.WriteLine("3 - Voltar");
+                Console.Write("Opção: ");
+
+                Menu menu = new Menu();
+                switch (Console.ReadLine())
+                {
+                    case "1":
+                        VeiculoService.AdicionarVeiculo();
+                        break;
+                    case "2":
+                        VeiculoService.RemoverVeiculo();
+                        break;
+                    case "3":
+                        ExibirMenu();
+                        break;
+                    default:
+                        Console.WriteLine("Opção inválida!");
+                        break;
+                }
+            }
+        }
+
+        private static void ExibirCancelarPrograma()
         {
             Console.Clear();
             Console.WriteLine("Programa se encerará em 5 segundos...");
