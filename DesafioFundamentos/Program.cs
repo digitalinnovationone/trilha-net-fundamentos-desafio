@@ -1,4 +1,5 @@
 ﻿using DesafioFundamentos.Models;
+using DocumentFormat.OpenXml.Drawing;
 
 // Coloca o encoding para UTF8 para exibir acentuação
 Console.OutputEncoding = System.Text.Encoding.UTF8;
@@ -7,7 +8,6 @@ Estacionamento es = new Estacionamento();
 
 string opcao = string.Empty;
 bool exibirMenu = true;
-
 // Realiza o loop do menu
 while (exibirMenu)
 {
@@ -16,7 +16,7 @@ while (exibirMenu)
     Console.WriteLine("1 - Cadastrar veículo");
     Console.WriteLine("2 - Remover veículo");
     Console.WriteLine("3 - Listar veículos");
-    Console.WriteLine("4 - Para Monstrar Planilha");
+    Console.WriteLine("4 - Criar 10 Veiculos");
     Console.WriteLine("5 - Encerrar");
 
     switch (Console.ReadLine())
@@ -30,11 +30,29 @@ while (exibirMenu)
             break;
 
         case "3":
-            es.ListarVeiculos();
+            Console.WriteLine("Como você que Listar os veiculos?");
+            Console.WriteLine("1-Terminal");
+            Console.WriteLine("2-Exel");
+            Console.WriteLine("3-CSV");
+
+            opcao = Console.ReadLine();
+            if(opcao=="1"){
+                es.ListarVeiculosTerminal();
+            }
+            else if(opcao=="2"){
+                es.ListarVeiculosExel();
+            }
+            else if(opcao=="3"){
+
+            }else{
+                 Console.WriteLine("Opção inválida");
+            break;
+            }
+            
             break;
         case "4":
-        es.BancoDeUsuarios();
-        break;
+            es.BancoDeUsuarios();
+            break;
         case "5":
             exibirMenu = false;
             break;

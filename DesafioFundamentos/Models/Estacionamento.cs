@@ -7,6 +7,7 @@ namespace DesafioFundamentos.Models
     public class Estacionamento
     {
         Veiculo veiculo = new Veiculo();
+        Boolean opcao;
         private decimal precoInicial = 0;
         private decimal precoPorHora = 0;
         private List<string> veiculos = new List<string>();
@@ -42,19 +43,27 @@ namespace DesafioFundamentos.Models
             }
         }
 
-        public void ListarVeiculos()
+        public void ListarVeiculosExel()
+        {
+            if (veiculo.Id.Any())
+            {
+                Process.Start(new ProcessStartInfo(@"C:\Temp\TestesExel.xlsx") { UseShellExecute = true });
+            }
+            else
+            {
+                Console.WriteLine("Não há veículos estacionados.");
+            }
+        }
+        public void ListarVeiculosTerminal()
         {
             // Verifica se há veículos no estacionamento
-            if (veiculos.Any())
+            if (veiculo.Id.Any())
             {
                 Console.WriteLine("Os veículos estacionados são:");
-                // TODO: Realizar um laço de repetição, exibindo os veículos estacionados
-                // *IMPLEMENTE AQUI*
-                foreach (string veiculo in veiculos)
+                for (int i = 0; i < veiculo.Id.Count; i++)
                 {
-                    Console.WriteLine(veiculo);
+                    Console.WriteLine($"ID: {veiculo.Id[i]}, Nome: {veiculo.Nome[i]}, CPF: {veiculo.CPF[i]}, CNH: {veiculo.CNH[i]}, Placa: {veiculo.Placa[i]}, Senha: {veiculo.Senha[i]}, Plano: {veiculo.Plano[i]}");
                 }
-
             }
             else
             {
@@ -79,10 +88,14 @@ namespace DesafioFundamentos.Models
 
                 Console.WriteLine("Insira os nomes (digite 'sair' para parar):");
 
-                while (true)
+                while (opcao==true)
                 {
                     Console.Write("ID: ");
-                    string id = Console.ReadLine();
+                    string id = Console.ReadLine(); 
+                    if (id.ToLower() == "sair"){
+                        opcao=false;
+                        break;
+                    }
                     Console.Write("Nome: ");
                     string nome = Console.ReadLine();
                     Console.Write("CPF: ");
@@ -95,16 +108,13 @@ namespace DesafioFundamentos.Models
                     string senha = Console.ReadLine();
                     Console.Write("Plano: ");
                     int plano = int.Parse(Console.ReadLine());
-
-                    if (id.ToLower() == "sair")
-                        break;
-                        veiculo.Id.Add(id);
-                        veiculo.Nome.Add(nome);
-                        veiculo.CPF.Add(cpf);
-                        veiculo.CNH.Add(cnh);
-                        veiculo.Placa.Add(placa);
-                        veiculo.Senha.Add(senha);
-                        veiculo.Plano.Add(plano);
+                    veiculo.Id.Add(id);
+                    veiculo.Nome.Add(nome);
+                    veiculo.CPF.Add(cpf);
+                    veiculo.CNH.Add(cnh);
+                    veiculo.Placa.Add(placa);
+                    veiculo.Senha.Add(senha);
+                    veiculo.Plano.Add(plano);
 
                 }
                 for (int i = 0; i < veiculo.Id.Count; i++)
@@ -118,13 +128,11 @@ namespace DesafioFundamentos.Models
                     worksheet.Cell(i + 2, 6).Value = veiculo.Senha[i];
                     worksheet.Cell(i + 2, 7).Value = veiculo.Plano[i];
                 }
-                
+
                 worksheet.Cell("H2").FormulaA1 = "=SUM(G2:G20)";
                 workbook.SaveAs(@"C:\Temp\TestesExel.xlsx");
 
             }
-            Process.Start(new ProcessStartInfo(@"C:\Temp\TestesExel.xlsx") { UseShellExecute = true });
-
         }
 
         public void BancoDeUsuarios()
@@ -162,7 +170,7 @@ namespace DesafioFundamentos.Models
             "CNH001", "CNH002", "CNH003", "CNH004", "CNH005", "CNH006", "CNH007", "CNH008", "CNH009", "CNH010"
         });
 
-               veiculo.Placa.AddRange(new List<string>
+                veiculo.Placa.AddRange(new List<string>
         {
             "ABC123", "DEF456", "GHI789", "JKL012", "MNO345", "PQR678", "STU901", "VWX234", "YZA567", "BCD890"
         });
@@ -176,7 +184,7 @@ namespace DesafioFundamentos.Models
                 { 100, 200, 300, 100, 200, 300, 100, 200, 300, 100
 
                 });
-                 for (int i = 0; i < veiculo.Id.Count; i++)
+                for (int i = 0; i < veiculo.Id.Count; i++)
                 {
                     worksheet.Cell(i + 2, 1).Value = veiculo.Id[i];
                     worksheet.Cell(i + 2, 2).Value = veiculo.Nome[i];
@@ -187,12 +195,11 @@ namespace DesafioFundamentos.Models
                     worksheet.Cell(i + 2, 6).Value = veiculo.Senha[i];
                     worksheet.Cell(i + 2, 7).Value = veiculo.Plano[i];
                 }
-                
-                worksheet.Cell("H2").FormulaA1 = "=SUM(G2:G20)";
+
+                worksheet.Cell("H2").FormulaA1 = "=SUM(G2:G300)";
                 workbook.SaveAs(@"C:\Temp\TestesExel.xlsx");
 
             }
-            Process.Start(new ProcessStartInfo(@"C:\Temp\TestesExel.xlsx") { UseShellExecute = true });
         }
     }
 }
