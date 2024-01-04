@@ -11,6 +11,7 @@ Para este desafio, você precisará usar seus conhecimentos adquiridos no módul
 ## Contexto
 Você foi contratado para construir um sistema para um estacionamento, que será usado para gerenciar os veículos estacionados e realizar suas operações, como por exemplo adicionar um veículo, remover um veículo (e exibir o valor cobrado durante o período) e listar os veículos.
 
+<!--
 ## Proposta
 Você precisará construir uma classe chamada "Estacionamento", conforme o diagrama abaixo:
 <h1 align="center"> 
@@ -30,17 +31,20 @@ Você precisará construir uma classe chamada "Estacionamento", conforme o diagr
 - **RemoverVeiculo**: Método responsável por verificar se um determinado veículo está estacionado, e caso positivo, irá pedir
 a quantidade de horas que ele permaneceu no estacionamento. Após isso, realiza o seguinte cálculo: **precoInicial** * **precoPorHora**, exibindo para o usuário.
 - **ListarVeiculos**: Lista todos os veículos presentes atualmente no estacionamento. Caso não haja nenhum, exibir a mensagem "Não há veículos estacionados".
+-->
 
-## Por último, deverá ser feito um menu interativo com as seguintes ações implementadas:
-1. **Cadastrar veículo**
-2. **Remover veículo**
-3. **Listar veículos**
-4. **Encerrar**
+## Deverá ser feito um menu interativo com as seguintes ações implementadas:
+1. **Adicionar um Novo Veículo**
+2. **Remover um Veículo Existente**
+3. **Listar todos os Veículos**
+4. **Encerrar o Programa**
 
-## Solução
-O código está pela metade, e você deverá dar continuidade obedecendo as regras descritas acima, para que no final, tenhamos um programa funcional. Procure pela palavra comentada "TODO" no código, em seguida, implemente conforme as regras acima.
+## Deverá ser feito um menu interativo que se comunica com o menu principal, com as seguintes ações implementadas:
+1. **Adicionar um Novo Veículo**
+2. **Remover um Veículo Existente**
+3. **Voltar p/ o Menu Principal**
 
-## Ferramentas
+## Ferramentas Usadas
 
 - [C#](https://learn.microsoft.com/pt-br/dotnet/csharp/tour-of-csharp/)
 - [.NET](https://dotnet.microsoft.com/pt-br/learn/dotnet/what-is-dotnet)
@@ -50,8 +54,9 @@ O código está pela metade, e você deverá dar continuidade obedecendo as regr
 ## Serviços Usados
 
 - [Github](https://github.com/)
+- [Trello](https://trello.com/home)
 
-## Como Usar
+## Como Usar o programa
 
 - É necessário ter o visual studio e o .NET 6 instalado.
 
@@ -69,10 +74,14 @@ O código está pela metade, e você deverá dar continuidade obedecendo as regr
        dotnet run
      ```
 
-## Características 
+## Características
 
 Características do projeto:
 - Estacionar um veículo
 - Listar os veículo
 - Excluir um Veículo
 - Calcular o valor por tempo estacionado
+
+## Autores
+- [Leonardo Buta](https://github.com/leonardo-buta)
+- [Jose Messias](https://github.com/JoseCMessias)
