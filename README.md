@@ -83,5 +83,5 @@ Características do projeto:
 - Calcular o valor por tempo estacionado
 
 ## Autores
-- [Leonardo Buta]()
-- [Jose Messias]()
+- [Leonardo Buta](https://github.com/leonardo-buta)
+- [Jose Messias](https://github.com/JoseCMessias)
