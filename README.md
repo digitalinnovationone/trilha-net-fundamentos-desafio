@@ -54,6 +54,7 @@ a quantidade de horas que ele permaneceu no estacionamento. Após isso, realiza 
 ## Serviços Usados
 
 - [Github](https://github.com/)
+- [Trello](https://trello.com/home)
 
 ## Como Usar o programa
 
