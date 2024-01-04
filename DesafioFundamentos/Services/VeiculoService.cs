@@ -53,7 +53,7 @@ namespace Services
             string placa = Console.ReadLine().ToUpper();
 
             // Cria uma instância de Estacionamento
-            Estacionamento estacionamento = new Estacionamento();
+            Estacionamento estacionamento = new Estacionamento(10.50M, 10.50M);
 
             // Consulta o veículo no repositório
             var veiculo = VeiculoRepositorio.ConsultarUm(placa);
@@ -66,7 +66,7 @@ namespace Services
                 int horas = int.Parse(Console.ReadLine());
 
                 // Calcula o valor total com base nas horas e remove o veículo do repositório
-                decimal valorTotal = (estacionamento.PrecoInicial + estacionamento.PrecoPorHora) * horas;
+                decimal valorTotal = estacionamento.CalculaPrecoInicialMaisPrecoPorHora() * horas;
                 VeiculoRepositorio.Delete(placa);
 
                 Console.WriteLine($"O veículo de Placa: {placa}, foi removido e o preço total foi de: R$ {valorTotal.ToString("F2")}");
