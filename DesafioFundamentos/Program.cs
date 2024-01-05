@@ -29,27 +29,34 @@ while (exibirMenu)
     Console.WriteLine("3 - Listar veículos");
     Console.WriteLine("4 - Encerrar");
 
-    switch (Console.ReadLine())
+    try
     {
-        case "1":
-            es.AdicionarVeiculo();
-            break;
+        switch (Console.ReadLine())
+        {
+            case "1":
+                es.AdicionarVeiculo();
+                break;
 
-        case "2":
-            es.RemoverVeiculo();
-            break;
+            case "2":
+                es.RemoverVeiculo();
+                break;
 
-        case "3":
-            es.ListarVeiculos();
-            break;
+            case "3":
+                es.ListarVeiculos();
+                break;
 
-        case "4":
-            exibirMenu = false;
-            break;
+            case "4":
+                exibirMenu = false;
+                break;
 
-        default:
-            Console.WriteLine("Opção inválida");
-            break;
+            default:
+                Console.WriteLine("Opção inválida");
+                break;
+        }
+    }
+    catch (Exception e)
+    {
+        Console.WriteLine(e.Message);
     }
 
     Console.WriteLine("Pressione uma tecla para continuar");
