@@ -40,7 +40,7 @@ namespace Services
             // Exibe um loop para adicionar ou não outro veículo
             Console.ReadKey();
             Console.Clear();
-            Menu.ExibirMenuCase();
+            Menu.ExibirMenuSecundario();
         }
 
         // Método para remover um veículo do estacionamento
@@ -77,7 +77,7 @@ namespace Services
             // Exibe um loop para Remover ou não outro veículo
             Console.ReadKey();
             Console.Clear();
-            Menu.ExibirMenuCase();
+            Menu.ExibirMenuSecundario();
         }
 
         // Método para listar todos os veículos estacionados

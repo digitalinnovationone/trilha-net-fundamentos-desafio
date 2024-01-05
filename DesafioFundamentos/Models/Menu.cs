@@ -4,7 +4,7 @@ namespace DesafioFundamentos.Models
 {
     public class Menu
     {
-        public static void ExibirMenu()
+        public static void ExibirMenuPrimario()
         {
             bool exibirMenu = true;
             while (exibirMenu)
@@ -43,7 +43,7 @@ namespace DesafioFundamentos.Models
             }
         }
 
-        public static void ExibirMenuCase()
+        public static void ExibirMenuSecundario()
         {
             while(true)
             {
@@ -64,7 +64,7 @@ namespace DesafioFundamentos.Models
                         VeiculoService.RemoverVeiculo();
                         break;
                     case "3":
-                        ExibirMenu();
+                        ExibirMenuPrimario();
                         break;
                     default:
                         Console.WriteLine("Opção inválida!");
