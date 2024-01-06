@@ -5,7 +5,6 @@ namespace DesafioFundamentos.Models
     {
         private decimal PrecoInicial { get; set; }    
         private decimal PrecoPorHora { get; set; }
-        public List<Veiculo> veiculos { get; set; }
 
         public Estacionamento(decimal precoInicial, decimal precoPorHora)
         {
