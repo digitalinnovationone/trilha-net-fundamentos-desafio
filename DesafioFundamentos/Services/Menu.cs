@@ -6,8 +6,7 @@ namespace DesafioFundamentos.Models
     {
         public static void ExibirMenuPrimario()
         {
-            bool exibirMenu = true;
-            while (exibirMenu)
+            while (true)
             {
                 Console.Clear();
                 Console.WriteLine("Bem-vindo ao Gerenciador de Veículos!");

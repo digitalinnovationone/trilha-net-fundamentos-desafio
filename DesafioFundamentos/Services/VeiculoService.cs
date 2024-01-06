@@ -26,7 +26,7 @@ namespace Services
                 };
                 VeiculoRepositorio.AdicionarVeiculo(veiculo);
 
-                Console.WriteLine("A placa informada é válida! \nVeículo estacionado com sucesso!!");
+                Console.WriteLine($"A placa informada é válida! \nVeículo {placa} estacionado com sucesso!!");
             }
             else
             {
