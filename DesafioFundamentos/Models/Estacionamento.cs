@@ -1,13 +1,14 @@
 using System.Diagnostics;
 using ClosedXML.Excel;
 using DocumentFormat.OpenXml.Office2010.Excel;
+using DocumentFormat.OpenXml.Spreadsheet;
 
 namespace DesafioFundamentos.Models
 {
     public class Estacionamento
     {
         Veiculo veiculo = new Veiculo();
-        Boolean opcao;
+        Boolean opcao = true;
         private decimal precoInicial = 0;
         private decimal precoPorHora = 0;
         private List<string> veiculos = new List<string>();
@@ -70,7 +71,40 @@ namespace DesafioFundamentos.Models
                 Console.WriteLine("Não há veículos estacionados.");
             }
         }
+        public void AdicinarVeiculoELerPorExel()
+        {
+            var workbook = new XLWorkbook(@"C:\Temp\TestesExel.xlsx");
+            Process.Start(new ProcessStartInfo(@"C:\Temp\TestesExel.xlsx") { UseShellExecute = true });
+            var planilha = workbook.Worksheets.First(w => w.Name == "PlanilhasUsuarios");
+            var totalLinhas = planilha.Rows().Count();
 
+            for (int l = 2; l <= totalLinhas; l++)
+            {
+                string id = planilha.Cell($"A{l}").Value.ToString();
+                string nome = planilha.Cell($"B{l}").Value.ToString();
+                string cpf = planilha.Cell($"C{l}").Value.ToString();
+                string cnh = planilha.Cell($"D{l}").Value.ToString();
+                string placa = planilha.Cell($"E{l}").Value.ToString();
+                string senha = planilha.Cell($"F{l}").Value.ToString();
+
+                string planoString = planilha.Cell($"G{l}").Value.ToString();
+                int plano;
+                bool planoValido = int.TryParse(planoString, out plano);
+
+                if (veiculo.Id.Contains(id))
+                {
+                    continue;
+                }
+
+                veiculo.Id.Add(id);
+                veiculo.Nome.Add(nome);
+                veiculo.CPF.Add(cpf);
+                veiculo.CNH.Add(cnh);
+                veiculo.Placa.Add(placa);
+                veiculo.Senha.Add(senha);
+                veiculo.Plano.Add(plano);
+            }
+        }
         public void AdicionarVeiculo()
         {
             using (var workbook = new XLWorkbook())
@@ -88,12 +122,13 @@ namespace DesafioFundamentos.Models
 
                 Console.WriteLine("Insira os nomes (digite 'sair' para parar):");
 
-                while (opcao==true)
+                while (opcao = true)
                 {
                     Console.Write("ID: ");
-                    string id = Console.ReadLine(); 
-                    if (id.ToLower() == "sair"){
-                        opcao=false;
+                    string id = Console.ReadLine();
+                    if (id.ToLower() == "sair")
+                    {
+                        opcao = false;
                         break;
                     }
                     Console.Write("Nome: ");
@@ -123,7 +158,6 @@ namespace DesafioFundamentos.Models
                     worksheet.Cell(i + 2, 2).Value = veiculo.Nome[i];
                     worksheet.Cell(i + 2, 3).Value = veiculo.CPF[i];
                     worksheet.Cell(i + 2, 4).Value = veiculo.CNH[i];
-                    worksheet.Cell(i + 2, 5).Value = veiculo.Placa[i];
                     worksheet.Cell(i + 2, 5).Value = veiculo.Placa[i];
                     worksheet.Cell(i + 2, 6).Value = veiculo.Senha[i];
                     worksheet.Cell(i + 2, 7).Value = veiculo.Plano[i];
@@ -179,11 +213,11 @@ namespace DesafioFundamentos.Models
         {
             "senha1", "senha2", "senha3", "senha4", "senha5", "senha6", "senha7", "senha8", "senha9", "senha10"
         });
-
                 veiculo.Plano.AddRange(new List<int>
-                { 100, 200, 300, 100, 200, 300, 100, 200, 300, 100
+                { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
 
-                });
+                 });
+
                 for (int i = 0; i < veiculo.Id.Count; i++)
                 {
                     worksheet.Cell(i + 2, 1).Value = veiculo.Id[i];
@@ -191,9 +225,9 @@ namespace DesafioFundamentos.Models
                     worksheet.Cell(i + 2, 3).Value = veiculo.CPF[i];
                     worksheet.Cell(i + 2, 4).Value = veiculo.CNH[i];
                     worksheet.Cell(i + 2, 5).Value = veiculo.Placa[i];
-                    worksheet.Cell(i + 2, 5).Value = veiculo.Placa[i];
                     worksheet.Cell(i + 2, 6).Value = veiculo.Senha[i];
                     worksheet.Cell(i + 2, 7).Value = veiculo.Plano[i];
+
                 }
 
                 worksheet.Cell("H2").FormulaA1 = "=SUM(G2:G300)";
