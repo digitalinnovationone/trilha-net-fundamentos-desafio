@@ -1,3 +1,5 @@
+using System.Text.RegularExpressions;
+
 namespace DesafioFundamentos.Models
 {
     public class Estacionamento
@@ -14,9 +16,28 @@ namespace DesafioFundamentos.Models
 
         public void AdicionarVeiculo()
         {
-            // TODO: Pedir para o usuário digitar uma placa (ReadLine) e adicionar na lista "veiculos"
-            // *IMPLEMENTE AQUI*
+            string placa = string.Empty;
+            // Verifica se a placa está no padrão mercosul, podendo ser informado com ou sem hífen
+            string padraoPlaca = @"[A-Z]{3}-?[0-9][0-9A-Z][0-9]{2}";
+            bool placaValida = false;
+
             Console.WriteLine("Digite a placa do veículo para estacionar:");
+
+            do
+            {
+                placa = Console.ReadLine();
+
+                if (!Regex.IsMatch(placa.ToUpper(), padraoPlaca))
+                {
+                    Console.WriteLine("Placa inválida. Digite novamente:");
+                } else
+                {
+                    placaValida = true;
+                }
+
+            } while (!placaValida);
+
+            veiculos.Add(placa.ToUpper());
         }
 
         public void RemoverVeiculo()
@@ -33,10 +54,10 @@ namespace DesafioFundamentos.Models
                 Console.WriteLine("Digite a quantidade de horas que o veículo permaneceu estacionado:");
 
                 // TODO: Pedir para o usuário digitar a quantidade de horas que o veículo permaneceu estacionado,
-                // TODO: Realizar o seguinte cálculo: "precoInicial + precoPorHora * horas" para a variável valorTotal                
+                // TODO: Realizar o seguinte cálculo: "precoInicial + precoPorHora * horas" para a variável valorTotal
                 // *IMPLEMENTE AQUI*
                 int horas = 0;
-                decimal valorTotal = 0; 
+                decimal valorTotal = 0;
 
                 // TODO: Remover a placa digitada da lista de veículos
                 // *IMPLEMENTE AQUI*
