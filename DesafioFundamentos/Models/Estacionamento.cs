@@ -1,6 +1,7 @@
 using System.Diagnostics;
 using ClosedXML.Excel;
 using DocumentFormat.OpenXml.Office2010.Excel;
+using DocumentFormat.OpenXml.Office2010.PowerPoint;
 using DocumentFormat.OpenXml.Spreadsheet;
 
 namespace DesafioFundamentos.Models
@@ -48,7 +49,10 @@ namespace DesafioFundamentos.Models
         {
             if (veiculo.Id.Any())
             {
+        
                 Process.Start(new ProcessStartInfo(@"C:\Temp\TestesExel.xlsx") { UseShellExecute = true });
+                 var workbook = new XLWorkbook(@"C:\Temp\TestesExel.xlsx");
+                workbook.SaveAs(@"C:\Temp\TestesExel.xlsx");
             }
             else
             {
@@ -71,12 +75,14 @@ namespace DesafioFundamentos.Models
                 Console.WriteLine("Não há veículos estacionados.");
             }
         }
-        public void AdicinarVeiculoELerPorExel()
+
+        public void AdicinarPorExcel()
         {
-            var workbook = new XLWorkbook(@"C:\Temp\TestesExel.xlsx");
             Process.Start(new ProcessStartInfo(@"C:\Temp\TestesExel.xlsx") { UseShellExecute = true });
+            var workbook = new XLWorkbook(@"C:\Temp\TestesExel.xlsx");
             var planilha = workbook.Worksheets.First(w => w.Name == "PlanilhasUsuarios");
             var totalLinhas = planilha.Rows().Count();
+
 
             for (int l = 2; l <= totalLinhas; l++)
             {
@@ -95,7 +101,40 @@ namespace DesafioFundamentos.Models
                 {
                     continue;
                 }
+                veiculo.Id.Add(id);
+                veiculo.Nome.Add(nome);
+                veiculo.CPF.Add(cpf);
+                veiculo.CNH.Add(cnh);
+                veiculo.Placa.Add(placa);
+                veiculo.Senha.Add(senha);
+                veiculo.Plano.Add(plano);
+            }
 
+        }
+        public void LerPorExel()
+        {
+            var workbook = new XLWorkbook(@"C:\Temp\TestesExel.xlsx");
+            var planilha = workbook.Worksheets.First(w => w.Name == "PlanilhasUsuarios");
+            var totalLinhas = planilha.Rows().Count();
+
+
+            for (int l = 2; l <= totalLinhas; l++)
+            {
+                string id = planilha.Cell($"A{l}").Value.ToString();
+                string nome = planilha.Cell($"B{l}").Value.ToString();
+                string cpf = planilha.Cell($"C{l}").Value.ToString();
+                string cnh = planilha.Cell($"D{l}").Value.ToString();
+                string placa = planilha.Cell($"E{l}").Value.ToString();
+                string senha = planilha.Cell($"F{l}").Value.ToString();
+
+                string planoString = planilha.Cell($"G{l}").Value.ToString();
+                int plano;
+                bool planoValido = int.TryParse(planoString, out plano);
+
+                if (veiculo.Id.Contains(id))
+                {
+                    continue;
+                }
                 veiculo.Id.Add(id);
                 veiculo.Nome.Add(nome);
                 veiculo.CPF.Add(cpf);
