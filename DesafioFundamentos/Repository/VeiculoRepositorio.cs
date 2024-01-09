@@ -16,7 +16,7 @@ namespace Repository
             return veiculos;
         }
 
-        public static bool ExistePorPlaca(string placa)
+        public static bool ExisteVeiculoPorPlaca(string placa)
         {
             return veiculos.Any(e => e.Placa == placa);
         }
