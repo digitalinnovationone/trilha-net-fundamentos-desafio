@@ -16,13 +16,13 @@ namespace DesafioFundamentos.Models
 
         public void AdicionarVeiculo()
         {
-            string placa = string.Empty;
-            // Verifica se a placa está no padrão mercosul, podendo ser informado com ou sem hífen
-            string padraoPlaca = @"[A-Z]{3}-?[0-9][0-9A-Z][0-9]{2}";
+            // Regex para verificar se a placa atende ao padrão brasileiro.
+            string padraoPlaca = @"^[A-Z]{3}-?[0-9][0-9A-Z][0-9]{2}$";
             bool placaValida = false;
 
             Console.WriteLine("Digite a placa do veículo para estacionar:");
 
+            string placa;
             do
             {
                 placa = Console.ReadLine();
@@ -30,7 +30,8 @@ namespace DesafioFundamentos.Models
                 if (!Regex.IsMatch(placa.ToUpper(), padraoPlaca))
                 {
                     Console.WriteLine("Placa inválida. Digite novamente:");
-                } else
+                }
+                else
                 {
                     placaValida = true;
                 }
@@ -42,10 +43,14 @@ namespace DesafioFundamentos.Models
 
         public void RemoverVeiculo()
         {
+            if (!veiculos.Any())
+            {
+                Console.WriteLine("Não existem veículos estacionados no momento.");
+                return;
+            }
+
             Console.WriteLine("Digite a placa do veículo para remover:");
 
-            // Pedir para o usuário digitar a placa e armazenar na variável placa
-            // *IMPLEMENTE AQUI*
             string placa = Console.ReadLine().ToUpper();
 
             // Verifica se o veículo existe
