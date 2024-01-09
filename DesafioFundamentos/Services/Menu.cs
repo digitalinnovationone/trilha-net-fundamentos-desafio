@@ -9,11 +9,11 @@ namespace DesafioFundamentos.Models
             while (true)
             {
                 Console.Clear();
-                Console.WriteLine("Bem-vindo ao Gerenciador de Veículos!");
-                Console.WriteLine("Escolha uma opção:");
+                Console.WriteLine("==== Bem-vindo ao Gerenciador de Veículos ====");
+                Console.WriteLine("Escolha uma das seguintes opções:");
                 Console.WriteLine("1 - Adicionar um Novo Veículo");
                 Console.WriteLine("2 - Listar Todos os Veículos");
-                Console.WriteLine("3 - Listar Veiculo por Placa");
+                Console.WriteLine("3 - Localizar Veículo por Placa");
                 Console.WriteLine("4 - Remover um Veículo Existente");
                 Console.WriteLine("5 - Encerrar o Programa");
                 Console.Write("Opção: ");
@@ -51,11 +51,11 @@ namespace DesafioFundamentos.Models
             while (true)
             {
                 Console.Clear();
-                Console.WriteLine("Escolha uma opção:");
+                Console.WriteLine("==== Escolha uma Opção ====");
                 Console.WriteLine("1 - Adicionar um Novo Veículo");
-                Console.WriteLine("2 - Listar Veiculo por Placa");
+                Console.WriteLine("2 - Localizar Veículo por Placa");
                 Console.WriteLine("3 - Remover um Veículo Existente");
-                Console.WriteLine("4 - Voltar p/ o Menu Principal");
+                Console.WriteLine("4 - Voltar para o Menu Principal");
                 Console.Write("Opção: ");
 
                 switch (Console.ReadLine())
@@ -82,9 +82,9 @@ namespace DesafioFundamentos.Models
         private static void ExibirCancelarPrograma()
         {
             Console.Clear();
-            Console.WriteLine("Programa se encerará em 5 segundos...");
+            Console.WriteLine("O programa será encerrado em 5 segundos...");
             Thread.Sleep(5000);
-            Console.WriteLine("Programa encerrado. \nObrigado por usar os nossos serviços!");
+            Console.WriteLine("Programa encerrado.\nAgradecemos por utilizar nossos serviços!");
         }
     }
 }
