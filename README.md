@@ -15,23 +15,35 @@ Você foi contratado para construir um sistema para um estacionamento, que será
 ## Proposta
 Você precisará construir uma classe chamada "Estacionamento", conforme o diagrama abaixo:
 <h1 align="center"> 
-  <img width="1000" alt="Diagrama de classe estacionamento" src="image/diagrama_classe_estacionamento.png">
+  <img width="1000" alt="Diagrama de classe" src="image/">
   </br>
 </h1>
-
-## A classe contém três variáveis, sendo:
-
-- **precoInicial**: Tipo decimal. É o preço cobrado para deixar seu veículo estacionado.
-- **precoPorHora**: Tipo decimal. É o preço por hora que o veículo permanecer estacionado.
-- **veiculos**: É uma lista de string, representando uma coleção de veículos estacionados. Contém apenas a placa do veículo.
-
-## A classe contém três métodos, sendo:
-
-- **AdicionarVeiculo**: Método responsável por receber uma placa digitada pelo usuário e guardar na variável **veiculos**.
-- **RemoverVeiculo**: Método responsável por verificar se um determinado veículo está estacionado, e caso positivo, irá pedir
-a quantidade de horas que ele permaneceu no estacionamento. Após isso, realiza o seguinte cálculo: **precoInicial** * **precoPorHora**, exibindo para o usuário.
-- **ListarVeiculos**: Lista todos os veículos presentes atualmente no estacionamento. Caso não haja nenhum, exibir a mensagem "Não há veículos estacionados".
 -->
+
+## Classe Estacionamenoto:
+- A classe **Estacionamento** tem dois atributos privados: **PrecoInicial** e **PrecoPorHora**, ambos do tipo decimal.
+- O construtor **Estacionamento** recebe dois parâmetros (precoInicial e precoPorHora) para inicializar os atributos da classe.
+- O método **CalculaPrecoInicialMaisPrecoPorHora** retorna a soma dos valores de **PrecoInicial** e **PrecoPorHora**.
+
+## Classe Veiculo:
+- A classe **Veiculo** tem um atributo privado chamado **Placa** do tipo **string**.
+- O método **ToString** é sobrescrito para fornecer uma representação textual do objeto, retornando a placa do veículo.
+
+## Classe VeiculoService:
+- A classe **VeiculoService** tem métodos públicos que interagem com a camada de dados (**VeiculoRepositorio**) e lida com a lógica de negócios relacionada aos veículos.
+- **AdicionarVeiculo**: Solicita ao usuário uma placa, valida a placa, verifica se o veículo já está estacionado, cria um novo objeto Veiculo, o adiciona ao repositório e exibe mensagens apropriadas.
+- **ListarVeiculos**: Consulta todos os veículos no repositório e exibe suas informações ou informa se não há veículos estacionados.
+- **ListarVeiculoPorPlaca**: é responsável por permitir a busca de um veículo específico no sistema de estacionamento com base na placa informada pelo usuário.
+- **RemoverVeiculo**: Solicita ao usuário a placa do veículo a ser removido, cria uma instância de **Estacionamento**, consulta o veículo no repositório, calcula o valor total com base nas horas, remove o veículo do repositório e exibe mensagens apropriadas.
+- **ValidarPlaca**: Valida a placa do veículo com base em critérios específicos.
+
+## Classe VeiculoRepositorio:
+- A classe **VeiculoRepositorio** contém um atributo privado chamado veiculos, que é uma lista de objetos da classe **Veiculo**.
+- **AdicionarVeiculo**: Método público que adiciona um veículo à lista.
+- **ListarTodosVeiculos**: Método público para consultar todos os veículos na lista.
+- **ExisteVeiculoPorPlaca**: Método público que verifica se um veículo com a placa especificada existe na lista.
+- **ListarUmVeiculo**: Método público que consulta um veículo específico com base na placa.
+- **DeletarVeiculo**:  Método público que exclui um veículo com base na placa.
 
 ## Deverá ser feito um menu interativo com as seguintes ações implementadas:
 1. **Adicionar um Novo Veículo**
