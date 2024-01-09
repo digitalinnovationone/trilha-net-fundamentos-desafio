@@ -12,9 +12,11 @@ namespace Services
             Console.Write("Digite a placa do veículo para estacionar: ");
             string placa = Console.ReadLine().ToUpper().Replace("-", "");
 
-            if (ValidarPlaca(placa))
+            bool placaValidada = ValidarPlaca(placa);
+
+            if (placaValidada)
             {
-                if (VeiculoRepositorio.ExistePorPlaca(placa))
+                if (VeiculoRepositorio.ExisteVeiculoPorPlaca(placa))
                 {
                     Console.WriteLine($"Veículo de Placa: {placa}, já está estacionado.");
                     return;
@@ -50,7 +52,7 @@ namespace Services
                 int contadorVeiculo = 1;
                 foreach (var veiculo in veiculos)
                 {
-                    Console.WriteLine($"Vaga {contadorVeiculo} - Veículo de Placa: {veiculo} está estacionado!");
+                    Console.WriteLine($"Vaga {contadorVeiculo} - Veículo de Placa: {veiculo.ToString()} está estacionado!");
                     contadorVeiculo++;
                 }
             }
@@ -66,7 +68,7 @@ namespace Services
             Console.Write("Digite a placa do veículo estacionado: ");
             string placa = Console.ReadLine().ToUpper().Replace("-", "");
 
-            if (VeiculoRepositorio.ExistePorPlaca(placa))
+            if (VeiculoRepositorio.ExisteVeiculoPorPlaca(placa))
             {
                 Console.WriteLine($"Veículo de Placa: {placa} está estácionado.");
             }
