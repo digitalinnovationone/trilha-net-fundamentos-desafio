@@ -42,14 +42,14 @@ Você foi contratado para construir um sistema para um estacionamento, que será
 - **ListarUmVeiculo**: Método público que consulta um veículo específico com base na placa.
 - **DeletarVeiculo**:  Método público que exclui um veículo com base na placa.
 
-## Deverá ser feito um menu interativo com as seguintes ações implementadas:
+## Deverá ser feito um menu interativo primário com as seguintes ações implementadas:
 1. **Adicionar um Novo Veículo**
 2. **Listar Todos os Veículos**
 3. **Localizar Veículo por Placa**
 4. **Remover um Veículo Existente**
 5. **Encerrar o Programa**
 
-## Deverá ser feito um menu interativo que se comunica com o menu principal, com as seguintes ações implementadas:
+## Deverá ser feito um menu interativo secundário com as seguintes ações implementadas:
 1. **Adicionar um Novo Veículo**
 2. **Localizar Veículo por Placa**
 3. **Remover um Veículo Existente**
