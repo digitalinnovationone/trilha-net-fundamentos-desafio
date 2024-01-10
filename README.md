@@ -93,7 +93,3 @@ Características do projeto:
 - Listar os veículo
 - Excluir um Veículo
 - Calcular o valor por tempo estacionado
-
-## Autores
-- [Leonardo Buta](https://github.com/leonardo-buta)
-- [Jose Messias](https://github.com/JoseCMessias)
