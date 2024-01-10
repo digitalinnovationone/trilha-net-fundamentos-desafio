@@ -17,14 +17,14 @@ Você foi contratado para construir um sistema para um estacionamento, que será
   </br>
 </h1>
 
+## Classe Veiculo:
+- A classe **Veiculo** tem um atributo privado chamado **Placa** do tipo **string**.
+- O método **ToString** é sobrescrito para fornecer uma representação textual do objeto, retornando a placa do veículo.
+
 ## Classe Estacionamenoto:
 - A classe **Estacionamento** tem dois atributos privados: **PrecoInicial** e **PrecoPorHora**, ambos do tipo decimal.
 - O construtor **Estacionamento** recebe dois parâmetros (precoInicial e precoPorHora) para inicializar os atributos da classe.
 - O método **CalculaPrecoInicialMaisPrecoPorHora** retorna a soma dos valores de **PrecoInicial** e **PrecoPorHora**.
-
-## Classe Veiculo:
-- A classe **Veiculo** tem um atributo privado chamado **Placa** do tipo **string**.
-- O método **ToString** é sobrescrito para fornecer uma representação textual do objeto, retornando a placa do veículo.
 
 ## Classe VeiculoService:
 - A classe **VeiculoService** tem métodos públicos que interagem com a camada de dados (**VeiculoRepositorio**) e lida com a lógica de negócios relacionada aos veículos.
