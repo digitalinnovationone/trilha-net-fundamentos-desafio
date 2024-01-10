@@ -12,7 +12,6 @@ Para este desafio, você precisará usar seus conhecimentos adquiridos no módul
 Você foi contratado para construir um sistema para um estacionamento, que será usado para gerenciar os veículos estacionados e realizar suas operações, como por exemplo adicionar um veículo, remover um veículo (e exibir o valor cobrado durante o período) e listar os veículos.
 
 ## Proposta
-Você precisará construir uma classe chamada "Estacionamento", conforme o diagrama abaixo:
 <h1 align="center"> 
   <img width="1000" alt="Diagrama de classe" src="image/diagrama_classe.png">
   </br>
