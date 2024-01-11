@@ -91,5 +91,6 @@ Você foi contratado para construir um sistema para um estacionamento, que será
 Características do projeto:
 - Estacionar um veículo
 - Listar os veículo
+- Listar um veículo
 - Excluir um Veículo
 - Calcular o valor por tempo estacionado
