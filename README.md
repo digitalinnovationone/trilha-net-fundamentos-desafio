@@ -11,21 +11,20 @@ Para este desafio, você precisará usar seus conhecimentos adquiridos no módul
 ## Contexto
 Você foi contratado para construir um sistema para um estacionamento, que será usado para gerenciar os veículos estacionados e realizar suas operações, como por exemplo adicionar um veículo, remover um veículo (e exibir o valor cobrado durante o período) e listar os veículos.
 
-## Proposta
-Você precisará construir uma classe chamada "Estacionamento", conforme o diagrama abaixo:
+## Diagrama de Classe
 <h1 align="center"> 
   <img width="1000" alt="Diagrama de classe" src="image/diagramaClasse.drawio.png">
   </br>
 </h1>
 
+## Classe Veiculo:
+- A classe **Veiculo** tem um atributo privado chamado **Placa** do tipo **string**.
+- O método **ToString** é sobrescrito para fornecer uma representação textual do objeto, retornando a placa do veículo.
+
 ## Classe Estacionamenoto:
 - A classe **Estacionamento** tem dois atributos privados: **PrecoInicial** e **PrecoPorHora**, ambos do tipo decimal.
 - O construtor **Estacionamento** recebe dois parâmetros (precoInicial e precoPorHora) para inicializar os atributos da classe.
 - O método **CalculaPrecoInicialMaisPrecoPorHora** retorna a soma dos valores de **PrecoInicial** e **PrecoPorHora**.
-
-## Classe Veiculo:
-- A classe **Veiculo** tem um atributo privado chamado **Placa** do tipo **string**.
-- O método **ToString** é sobrescrito para fornecer uma representação textual do objeto, retornando a placa do veículo.
 
 ## Classe VeiculoService:
 - A classe **VeiculoService** tem métodos públicos que interagem com a camada de dados (**VeiculoRepositorio**) e lida com a lógica de negócios relacionada aos veículos.
@@ -43,14 +42,14 @@ Você precisará construir uma classe chamada "Estacionamento", conforme o diagr
 - **ListarUmVeiculo**: Método público que consulta um veículo específico com base na placa.
 - **DeletarVeiculo**:  Método público que exclui um veículo com base na placa.
 
-## Deverá ser feito um menu interativo com as seguintes ações implementadas:
+## Deverá ser feito um menu interativo primário com as seguintes ações implementadas:
 1. **Adicionar um Novo Veículo**
 2. **Listar Todos os Veículos**
 3. **Localizar Veículo por Placa**
 4. **Remover um Veículo Existente**
 5. **Encerrar o Programa**
 
-## Deverá ser feito um menu interativo que se comunica com o menu principal, com as seguintes ações implementadas:
+## Deverá ser feito um menu interativo secundário com as seguintes ações implementadas:
 1. **Adicionar um Novo Veículo**
 2. **Localizar Veículo por Placa**
 3. **Remover um Veículo Existente**
@@ -67,6 +66,7 @@ Você precisará construir uma classe chamada "Estacionamento", conforme o diagr
 
 - [Github](https://github.com/)
 - [Trello](https://trello.com/home)
+- [Draw.io](https://www.drawio.com/)
 
 ## Como Usar o programa
 
@@ -93,7 +93,3 @@ Características do projeto:
 - Listar os veículo
 - Excluir um Veículo
 - Calcular o valor por tempo estacionado
-
-## Autores
-- [Leonardo Buta](https://github.com/leonardo-buta)
-- [Jose Messias](https://github.com/JoseCMessias)
