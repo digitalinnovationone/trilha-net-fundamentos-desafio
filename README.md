@@ -71,7 +71,7 @@ Você foi contratado para construir um sistema para um estacionamento, que será
 
 - Clone o repositório com o comando:
     ```
-      git clone https://github.com/JoseCMessias/estacionamento-desafio.git
+      git clone https://github.com/JoseCMessias/gerenciador_de_estacionamento
     ```
 - Entre na pasta do projeto:
      ```
