@@ -5,11 +5,8 @@
 
 [SITE DA DIO](https://web.dio.me/)
 
-## Desafio de projeto
-Para este desafio, você precisará usar seus conhecimentos adquiridos no módulo de fundamentos, da trilha .NET da DIO.
-
 ## Contexto
-Você foi contratado para construir um sistema para um estacionamento, que será usado para gerenciar os veículos estacionados e realizar suas operações, como por exemplo adicionar um veículo, remover um veículo (e exibir o valor cobrado durante o período) e listar os veículos.
+Você foi contratado para construir um sistema para um estacionamento, que será usado para gerenciar os veículos estacionados e realizar suas operações, como por exemplo adicionar um veículo, remover um veículo (e exibir o valor cobrado durante o período) listar um veículo e listar todos os veículos.
 
 ## Diagrama de Classe
 <h1 align="center"> 
@@ -74,7 +71,7 @@ Você foi contratado para construir um sistema para um estacionamento, que será
 
 - Clone o repositório com o comando:
     ```
-      git clone https://github.com/JoseCMessias/estacionamento-desafio.git
+      git clone https://github.com/JoseCMessias/gerenciador_de_estacionamento
     ```
 - Entre na pasta do projeto:
      ```
@@ -91,5 +88,6 @@ Você foi contratado para construir um sistema para um estacionamento, que será
 Características do projeto:
 - Estacionar um veículo
 - Listar os veículo
+- Listar um veículo
 - Excluir um Veículo
 - Calcular o valor por tempo estacionado
