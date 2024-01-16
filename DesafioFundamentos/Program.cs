@@ -64,7 +64,7 @@ while (exibirMenu)
                 Console.WriteLine("O que você deseja fazer como Desenvolvedor?");
                 Console.WriteLine("1-Adcinionar");
                 Console.WriteLine("2-Listar");
-                Console.WriteLine("3-");
+                Console.WriteLine("3-Remover");
                 trilha = Console.ReadLine();
                 switch (trilha)
                 {
@@ -75,6 +75,10 @@ while (exibirMenu)
                     case "2":
                         es.ListarVeiculosTerminal();
                         break;
+                    case "3":
+                        es.RemoverVeiculo();
+                        es.LerPorExel();
+                        break;
                 }
 
             }
@@ -83,7 +87,7 @@ while (exibirMenu)
                 Console.WriteLine("O que você deseja fazer como Desenvolvedor?");
                 Console.WriteLine("1-Adcinionar");
                 Console.WriteLine("2-Listar");
-                Console.WriteLine("3-");
+                Console.WriteLine("3-Remover");
                 trilha = Console.ReadLine();
                 switch (trilha)
                 {

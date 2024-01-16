@@ -12,7 +12,8 @@ namespace DesafioFundamentos.Models
         Boolean opcao = true;
         private decimal precoInicial = 0;
         private decimal precoPorHora = 0;
-        private List<string> veiculos = new List<string>();
+        
+        int numereoDeVeiculos=0;
 
         public void RemoverVeiculo()
         {
@@ -23,7 +24,7 @@ namespace DesafioFundamentos.Models
             string placa = Console.ReadLine();
 
             // Verifica se o veículo existe
-            if (veiculos.Any(x => x.ToUpper() == placa.ToUpper()))
+            if (veiculo.Placa.Any(x => x.ToUpper() == placa.ToUpper()))
             {
                 Console.WriteLine("Digite a quantidade de horas que o veículo permaneceu estacionado:");
 
@@ -35,7 +36,7 @@ namespace DesafioFundamentos.Models
 
                 // TODO: Remover a placa digitada da lista de veículos
                 // *IMPLEMENTE AQUI*
-                veiculos.Remove(placa);
+                veiculo.Placa.Remove(placa);
 
                 Console.WriteLine($"O veículo {placa} foi removido e o preço total foi de: R$ {valorTotal}");
             }
@@ -47,11 +48,11 @@ namespace DesafioFundamentos.Models
 
         public void ListarVeiculosExel()
         {
-            if (veiculo.Id.Any())
+            if (veiculo.Placa.Any())
             {
-        
+
                 Process.Start(new ProcessStartInfo(@"C:\Temp\TestesExel.xlsx") { UseShellExecute = true });
-                 var workbook = new XLWorkbook(@"C:\Temp\TestesExel.xlsx");
+                var workbook = new XLWorkbook(@"C:\Temp\TestesExel.xlsx");
                 workbook.SaveAs(@"C:\Temp\TestesExel.xlsx");
             }
             else
@@ -61,11 +62,12 @@ namespace DesafioFundamentos.Models
         }
         public void ListarVeiculosTerminal()
         {
+
             // Verifica se há veículos no estacionamento
-            if (veiculo.Id.Any())
+            if (veiculo.Placa.Any())
             {
                 Console.WriteLine("Os veículos estacionados são:");
-                for (int i = 0; i < veiculo.Id.Count; i++)
+                for (int i = 0; i < veiculo.Placa.Count; i++)
                 {
                     Console.WriteLine($"ID: {veiculo.Id[i]}, Nome: {veiculo.Nome[i]}, CPF: {veiculo.CPF[i]}, CNH: {veiculo.CNH[i]}, Placa: {veiculo.Placa[i]}, Senha: {veiculo.Senha[i]}, Plano: {veiculo.Plano[i]}");
                 }
@@ -97,7 +99,7 @@ namespace DesafioFundamentos.Models
                 int plano;
                 bool planoValido = int.TryParse(planoString, out plano);
 
-                if (veiculo.Id.Contains(id))
+                if (veiculo.Placa.Contains(placa))
                 {
                     continue;
                 }
@@ -131,7 +133,7 @@ namespace DesafioFundamentos.Models
                 int plano;
                 bool planoValido = int.TryParse(planoString, out plano);
 
-                if (veiculo.Id.Contains(id))
+                if (veiculo.Placa.Contains(placa))
                 {
                     continue;
                 }
@@ -191,7 +193,7 @@ namespace DesafioFundamentos.Models
                     veiculo.Plano.Add(plano);
 
                 }
-                for (int i = 0; i < veiculo.Id.Count; i++)
+                for (int i = 0; i < veiculo.Placa.Count; i++)
                 {
                     worksheet.Cell(i + 2, 1).Value = veiculo.Id[i];
                     worksheet.Cell(i + 2, 2).Value = veiculo.Nome[i];
