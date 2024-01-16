@@ -42,11 +42,11 @@ namespace Services
 
         public static void ListarVeiculos()
         {
+            Console.Clear();
             var veiculos = VeiculoRepositorio.ListarTodosVeiculos();
 
             if (veiculos.Any())
             {
-                Console.Clear();
                 Console.WriteLine("Os veículos estacionados são:");
 
                 int contadorVeiculo = 1;
@@ -67,6 +67,13 @@ namespace Services
             Console.Clear();
             Console.Write("Digite a placa do veículo estacionado: ");
             string placa = Console.ReadLine().ToUpper().Replace("-", "");
+
+            if (placa.Length > 7 || placa.Length < 7)
+            {
+                Console.Clear();
+                Console.WriteLine("A placa informada NÃO é válida!");
+                return;
+            }
 
             if (VeiculoRepositorio.ExisteVeiculoPorPlaca(placa))
             {
@@ -93,12 +100,21 @@ namespace Services
             if (veiculo != null)
             {
                 Console.Write("Digite a quantidade de horas que o veículo permaneceu estacionado: ");
-                int horas = int.Parse(Console.ReadLine());
+                string horasEstacionado = Console.ReadLine();
 
-                decimal valorTotal = estacionamento.CalculaPrecoInicialMaisPrecoPorHora() * horas;
-                VeiculoRepositorio.DeletarVeiculo(placa);
+                if (int.TryParse(horasEstacionado, out int horas) && horas > 0)
+                {
+                    decimal valorTotal = estacionamento.CalculaPrecoInicialMaisPrecoPorHora() * horas;
+                    VeiculoRepositorio.DeletarVeiculo(placa);
 
-                Console.WriteLine($"O veículo de Placa: {placa}, foi removido e o preço total foi de: R$ {valorTotal.ToString("F2")}");
+                    Console.WriteLine($"O veículo de Placa: {placa}, foi removido e o preço total foi de: R$ {valorTotal.ToString("F2")}");
+                }
+                else
+                {
+                    Console.WriteLine("A quantidade de horas informada não é válida. Certifique-se de digitar um valor inteiro maior que zero.");
+                    Console.WriteLine("Precione qualquer tecla para para continuar removendo!");
+                    Console.ReadKey();
+                }
             }
             else
             {
