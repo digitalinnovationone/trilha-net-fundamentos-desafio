@@ -107,7 +107,7 @@ namespace Services
                     decimal valorTotal = estacionamento.CalculaPrecoInicialMaisPrecoPorHora() * horas;
                     VeiculoRepositorio.DeletarVeiculo(placa);
 
-                    Console.WriteLine($"O veículo de Placa: {placa}, foi removido e o preço total foi de: R$ {valorTotal.ToString("F2")}");
+                    Console.WriteLine($"O veículo de Placa: {placa}, foi removido e o preço total foi de: {valorTotal.ToString("C")}");
                 }
                 else
                 {
