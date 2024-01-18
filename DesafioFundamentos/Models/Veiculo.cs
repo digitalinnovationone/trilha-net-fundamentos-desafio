@@ -1,4 +1,3 @@
-
 namespace DesafioFundamentos.Models
 {
     public class Veiculo

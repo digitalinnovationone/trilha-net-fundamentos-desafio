@@ -32,7 +32,7 @@ Você foi contratado para construir um sistema para um estacionamento, que será
 - **ValidarPlaca**: Valida a placa do veículo com base em critérios específicos.
 
 ## Classe VeiculoRepositorio:
-- A classe **VeiculoRepositorio** contém um atributo privado chamado veiculos, que é uma lista de objetos da classe **Veiculo**.
+- A classe **VeiculoRepositorio** contém um atributo privado chamado veiculos, que é uma lista de objetos da classe **Veiculo** e que já inicializa com três veículos estacionado.
 - **AdicionarVeiculo**: Método público que adiciona um veículo à lista.
 - **ListarTodosVeiculos**: Método público para consultar todos os veículos na lista.
 - **ExisteVeiculoPorPlaca**: Método público que verifica se um veículo com a placa especificada existe na lista.

@@ -4,7 +4,12 @@ namespace Repository
 {
     public class VeiculoRepositorio
     {
-        private static List<Veiculo> veiculos = new List<Veiculo>();
+        private static List<Veiculo> veiculos = new List<Veiculo>()
+        {
+            new Veiculo { Placa = "ASD1A11" },
+            new Veiculo { Placa = "ZXC1Z11" },
+            new Veiculo { Placa = "QWE1Q11" },
+        };
 
         public static void AdicionarVeiculo(Veiculo veiculo)
         {

@@ -93,7 +93,7 @@ namespace Services
             Console.Write("Digite a placa do veículo para remover: ");
             string placa = Console.ReadLine().ToUpper().Replace("-", "");
 
-            Estacionamento estacionamento = new Estacionamento(10.50M, 10.50M);
+            Estacionamento estacionamento = new Estacionamento(precoInicial: 10.50M, precoPorHora: 10.50M);
 
             var veiculo = VeiculoRepositorio.ListarUmVeiculo(placa);
 
@@ -111,7 +111,7 @@ namespace Services
                 }
                 else
                 {
-                    Console.WriteLine("A quantidade de horas informada não é válida. Certifique-se de digitar um valor inteiro maior que zero.");
+                    Console.WriteLine("Certifique-se de digitar um valor inteiro maior que zero.");
                     Console.WriteLine("Precione qualquer tecla para para continuar removendo!");
                     Console.ReadKey();
                 }
@@ -126,7 +126,7 @@ namespace Services
             Menu.ExibirMenuSecundario();
         }
 
-        public static bool ValidarPlaca(string placa)
+        private static bool ValidarPlaca(string placa)
         {
             if (string.IsNullOrWhiteSpace(placa)) { return false; }
 
