@@ -4,13 +4,13 @@ using DesafioFundamentos.Controller;
 using DocumentFormat.OpenXml.Office2010.Excel;
 using DocumentFormat.OpenXml.Office2010.PowerPoint;
 using DocumentFormat.OpenXml.Spreadsheet;
-
 namespace DesafioFundamentos.Models
 {
     public class Estacionamento
     {
         Veiculo veiculo = new Veiculo();
          TrilhaTerminal trilhaTerminal = new TrilhaTerminal();
+         TrilhaExel trilhaExel = new TrilhaExel();
         
       public void AdicionarVeiculoTerminal()
         {
@@ -21,94 +21,30 @@ namespace DesafioFundamentos.Models
         {
             trilhaTerminal.RemoverVeiculoTerminal();
         }
+
         public void ListarVeiculosTerminal()
         {
             trilhaTerminal.ListarVeiculosTerminal();
         }
 
-        public void ListarVeiculosExel()
-        {
-            if (veiculo.Placa.Any())
-            {
-
-                Process.Start(new ProcessStartInfo(@"C:\Temp\TestesExel.xlsx") { UseShellExecute = true });
-                var workbook = new XLWorkbook(@"C:\Temp\TestesExel.xlsx");
-                workbook.SaveAs(@"C:\Temp\TestesExel.xlsx");
-            }
-            else
-            {
-                Console.WriteLine("Não há veículos estacionados.");
-            }
-        }
+        //---------------------------------------------------------//
+        //Trilha Exel
 
         public void AdicinarPorExcel()
         {
-            Process.Start(new ProcessStartInfo(@"C:\Temp\TestesExel.xlsx") { UseShellExecute = true });
-            var workbook = new XLWorkbook(@"C:\Temp\TestesExel.xlsx");
-            var planilha = workbook.Worksheets.First(w => w.Name == "PlanilhasUsuarios");
-            var totalLinhas = planilha.Rows().Count();
-
-
-            for (int l = 2; l <= totalLinhas; l++)
-            {
-                string id = planilha.Cell($"A{l}").Value.ToString();
-                string nome = planilha.Cell($"B{l}").Value.ToString();
-                string cpf = planilha.Cell($"C{l}").Value.ToString();
-                string cnh = planilha.Cell($"D{l}").Value.ToString();
-                string placa = planilha.Cell($"E{l}").Value.ToString();
-                string senha = planilha.Cell($"F{l}").Value.ToString();
-
-                string planoString = planilha.Cell($"G{l}").Value.ToString();
-                int plano;
-                bool planoValido = int.TryParse(planoString, out plano);
-
-                if (veiculo.Placa.Contains(placa))
-                {
-                    continue;
-                }
-                veiculo.Id.Add(id);
-                veiculo.Nome.Add(nome);
-                veiculo.CPF.Add(cpf);
-                veiculo.CNH.Add(cnh);
-                veiculo.Placa.Add(placa);
-                veiculo.Senha.Add(senha);
-                veiculo.Plano.Add(plano);
-            }
-
+            trilhaExel.AdicinarPorExcel();
         }
+        
         public void LerPorExel()
         {
-            var workbook = new XLWorkbook(@"C:\Temp\TestesExel.xlsx");
-            var planilha = workbook.Worksheets.First(w => w.Name == "PlanilhasUsuarios");
-            var totalLinhas = planilha.Rows().Count();
-
-
-            for (int l = 2; l <= totalLinhas; l++)
-            {
-                string id = planilha.Cell($"A{l}").Value.ToString();
-                string nome = planilha.Cell($"B{l}").Value.ToString();
-                string cpf = planilha.Cell($"C{l}").Value.ToString();
-                string cnh = planilha.Cell($"D{l}").Value.ToString();
-                string placa = planilha.Cell($"E{l}").Value.ToString();
-                string senha = planilha.Cell($"F{l}").Value.ToString();
-
-                string planoString = planilha.Cell($"G{l}").Value.ToString();
-                int plano;
-                bool planoValido = int.TryParse(planoString, out plano);
-
-                if (veiculo.Placa.Contains(placa))
-                {
-                    continue;
-                }
-                veiculo.Id.Add(id);
-                veiculo.Nome.Add(nome);
-                veiculo.CPF.Add(cpf);
-                veiculo.CNH.Add(cnh);
-                veiculo.Placa.Add(placa);
-                veiculo.Senha.Add(senha);
-                veiculo.Plano.Add(plano);
-            }
+           trilhaExel.LerPorExel();
         }
+
+        public void ListarVeiculosExel()
+        {
+           trilhaExel.ListarVeiculosExel();
+        }
+
     
 
         public void BancoDeUsuarios()
