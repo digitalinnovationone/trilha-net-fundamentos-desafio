@@ -25,7 +25,8 @@ while (exibirMenu)
     {
         case "1":
             Console.WriteLine("Cadastro de Usuario ao Estacionamento");
-            es.AdicionarVeiculo();
+            es.AdicionarVeiculoTerminal();
+            es.LerPorExel();
             break;
 
         case "2":
@@ -40,7 +41,8 @@ while (exibirMenu)
                 switch (trilha)
                 {
                     case "2":
-                        es.AdicionarVeiculo();
+                        es.AdicionarVeiculoTerminal();
+                        es.LerPorExel();
                         break;
                     case "3":
                         es.AdicinarPorExcel();
@@ -69,14 +71,15 @@ while (exibirMenu)
                 switch (trilha)
                 {
                     case "1":
-                        es.AdicionarVeiculo();
+                        es.AdicionarVeiculoTerminal();
+                        es.LerPorExel();
                         break;
 
                     case "2":
                         es.ListarVeiculosTerminal();
                         break;
                     case "3":
-                        es.RemoverVeiculo();
+                        es.RemoverVeiculoTerminal();
                         es.LerPorExel();
                         break;
                 }
