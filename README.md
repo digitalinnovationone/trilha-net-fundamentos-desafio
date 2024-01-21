@@ -87,7 +87,7 @@ Os testes de segurança de software são uma parte essencial do ciclo de vida do
     ```
 - Entre na pasta do projeto:
      ```
-       cd estacionamento-desafio
+       cd gerenciador_de_estacionamento/DesafioFundamentos
      ```
 - Abra o terminal do Visual Studio Code
 - Execute o projeto com o comando:
