@@ -52,7 +52,7 @@ Você foi contratado para construir um sistema para um estacionamento, que será
 3. **Remover um Veículo Existente**
 4. **Voltar para o Menu Principal**
 
-## Testes de Segurnça
+## Testes de Segurança de Software
 
 Os testes de segurança de software são uma parte essencial do ciclo de vida do desenvolvimento de software, destinados a identificar e corrigir vulnerabilidades de segurança que podem ser exploradas por atacantes. Esses testes visam garantir que o software seja resistente a ataques e que os dados dos usuários sejam protegidos. Abaixo estão alguns testes de software que foram implementados nesta aplicação.
 
