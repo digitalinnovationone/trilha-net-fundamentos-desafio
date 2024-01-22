@@ -57,11 +57,8 @@ Você foi contratado para construir um sistema para um estacionamento, que será
 Os testes de segurança de software são uma parte essencial do ciclo de vida do desenvolvimento de software, destinados a identificar e corrigir vulnerabilidades de segurança que podem ser exploradas por atacantes. Esses testes visam garantir que o software seja resistente a ataques e que os dados dos usuários sejam protegidos. Abaixo estão alguns testes de software que foram implementados nesta aplicação.
 
 - **Validação de Placas:** A classe **VeiculoService** possui um método **ValidarPlaca** que implementa verificações na entrada do usuário para validar a placa do veículo. Esse método utiliza expressões regulares para garantir que a placa siga um padrão específico.
-
 - **Tratamento de Exceções:** Há alguns blocos de código que tratam exceções, por exemplo, na entrada do número de horas estacionado e no tratamento de formatos inválidos. Isso ajuda a evitar que o programa quebre inesperadamente e fornece uma melhor experiência para o usuário.
-
 - **Interface do Usuário Melhorada:** A aplicação utiliza uma interface de console simples, e a validação de entrada de usuário é feita de forma básica. Em caso de uma aplicação maior, seria necessário uma interface mais robusta.
-
 - **Manipulação Segura de Dados:** A manipulação de dados é realizada internamente, principalmente no repositório de veículos (VeiculoRepositorio). Dessa forma, garante que o tratamento dos dados seja feito na camada de serviços e armazenados na camada de dados.
 
 ## Ferramentas Usadas
