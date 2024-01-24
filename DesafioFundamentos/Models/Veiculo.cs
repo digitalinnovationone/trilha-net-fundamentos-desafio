@@ -6,7 +6,7 @@ namespace DesafioFundamentos.Models
 
         public override string ToString()
         {
-            return "Uma coisa qualquer!";
+            return Placa;
         }
     }
 }
