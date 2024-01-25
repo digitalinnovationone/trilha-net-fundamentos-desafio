@@ -1,10 +1,16 @@
+using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.Linq;
+
 namespace DesafioFundamentos.Models
 {
     public class Estacionamento
     {
         private decimal precoInicial = 0;
         private decimal precoPorHora = 0;
-        private List<string> veiculos = new List<string>();
+        private List<Veiculo> veiculos = new List<Veiculo>();
+        
 
         public Estacionamento(decimal precoInicial, decimal precoPorHora)
         {
@@ -14,34 +20,50 @@ namespace DesafioFundamentos.Models
 
         public void AdicionarVeiculo()
         {
-            // TODO: Pedir para o usuário digitar uma placa (ReadLine) e adicionar na lista "veiculos"
-            // *IMPLEMENTE AQUI*
             Console.WriteLine("Digite a placa do veículo para estacionar:");
+            string placa = Console.ReadLine();
+
+            Console.WriteLine("Digite a hora de entrada (formato HH:mm):");
+            if (DateTime.TryParseExact(Console.ReadLine(), "HH:mm", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime horaEntrada))
+            {
+                veiculos.Add(new Veiculo(placa.ToUpper(), horaEntrada));
+                Console.WriteLine($"Veículo com placa: {placa}, cadastrado com sucesso");
+            }
+            else
+            {
+                Console.WriteLine("Por favor, digite um formato de hora válido para a hora de entrada (HH:mm).");
+            }
         }
 
         public void RemoverVeiculo()
         {
             Console.WriteLine("Digite a placa do veículo para remover:");
+            string placa = Console.ReadLine();
 
-            // Pedir para o usuário digitar a placa e armazenar na variável placa
-            // *IMPLEMENTE AQUI*
-            string placa = "";
+            Veiculo veiculo = veiculos.FirstOrDefault(x => x.Placa.ToUpper().Equals(placa, StringComparison.CurrentCultureIgnoreCase));
 
-            // Verifica se o veículo existe
-            if (veiculos.Any(x => x.ToUpper() == placa.ToUpper()))
+            if (veiculo != null)
             {
-                Console.WriteLine("Digite a quantidade de horas que o veículo permaneceu estacionado:");
+                Console.WriteLine("Digite a hora de saída (formato HH:mm):");
 
-                // TODO: Pedir para o usuário digitar a quantidade de horas que o veículo permaneceu estacionado,
-                // TODO: Realizar o seguinte cálculo: "precoInicial + precoPorHora * horas" para a variável valorTotal                
-                // *IMPLEMENTE AQUI*
-                int horas = 0;
-                decimal valorTotal = 0; 
+                if (DateTime.TryParseExact(Console.ReadLine(), "HH:mm", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime horaSaida))
+                {
+                    if (horaSaida > veiculo.HoraEntrada)
+                    {
+                        decimal valorTotal = veiculo.CalcularValorTotal(precoInicial, precoPorHora, horaSaida);
+                        veiculos.Remove(veiculo);
 
-                // TODO: Remover a placa digitada da lista de veículos
-                // *IMPLEMENTE AQUI*
-
-                Console.WriteLine($"O veículo {placa} foi removido e o preço total foi de: R$ {valorTotal}");
+                        Console.WriteLine($"O veículo {placa} foi removido e o preço total foi de: R$ {valorTotal}");
+                    }
+                    else
+                    {
+                        Console.WriteLine("A hora de saída deve ser posterior à hora de entrada.");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Por favor, digite um formato de hora válido para a hora de saída (HH:mm).");
+                }
             }
             else
             {
@@ -51,17 +73,37 @@ namespace DesafioFundamentos.Models
 
         public void ListarVeiculos()
         {
-            // Verifica se há veículos no estacionamento
             if (veiculos.Any())
             {
                 Console.WriteLine("Os veículos estacionados são:");
-                // TODO: Realizar um laço de repetição, exibindo os veículos estacionados
-                // *IMPLEMENTE AQUI*
+
+                foreach (var veiculo in veiculos)
+                {
+                    Console.WriteLine(veiculo.Placa);
+                }
             }
             else
             {
                 Console.WriteLine("Não há veículos estacionados.");
             }
+        }
+    }
+
+    public class Veiculo
+    {
+        public string Placa { get; private set; }
+        public DateTime HoraEntrada { get; private set; }
+
+        public Veiculo(string placa, DateTime horaEntrada)
+        {
+            Placa = placa;
+            HoraEntrada = horaEntrada;
+        }
+
+        public decimal CalcularValorTotal(decimal precoInicial, decimal precoPorHora, DateTime horaSaida)
+        {
+            int horasEstacionado = (int)Math.Ceiling((horaSaida - HoraEntrada).TotalHours);
+            return precoInicial + precoPorHora * horasEstacionado;
         }
     }
 }
