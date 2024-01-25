@@ -54,7 +54,7 @@ Você foi contratado para construir um sistema para um estacionamento, que será
 
 ## Testes de Segurança de Software
 
-Os testes de segurança de software são uma parte essencial do ciclo de vida do desenvolvimento de software, destinados a identificar e corrigir vulnerabilidades de segurança que podem ser exploradas por atacantes. Esses testes visam garantir que o software seja resistente a ataques e que os dados dos usuários sejam protegidos. Abaixo estão alguns testes de software que foram implementados nesta aplicação.
+Os testes de segurança de software são uma parte essencial do ciclo de vida do desenvolvimento de software, destinados a identificar e corrigir vulnerabilidades de segurança que podem ser exploradas por atacantes. Esses testes visam garantir que o software seja resistente a ataques e que os dados dos usuários sejam protegidos. Abaixo estão alguns testes de software que foram implementados na aplicação.
 
 - **Validação de Placas:** A classe **VeiculoService** possui um método **ValidarPlaca** que implementa verificações na entrada do usuário para validar a placa do veículo. Esse método utiliza expressões regulares para garantir que a placa siga um padrão específico.
 - **Tratamento de Exceções:** Há alguns blocos de código que tratam exceções, por exemplo, na entrada do número de horas estacionado e no tratamento de formatos inválidos. Isso ajuda a evitar que o programa quebre inesperadamente e fornece uma melhor experiência para o usuário.
