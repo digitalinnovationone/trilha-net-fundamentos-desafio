@@ -40,7 +40,7 @@ namespace Services
             Menu.ExibirMenuSecundario();
         }
 
-        public static void ListarVeiculos()
+        public static void ListarTodosOsVeiculos()
         {
             Console.Clear();
             var veiculos = VeiculoRepositorio.ListarTodosVeiculos();

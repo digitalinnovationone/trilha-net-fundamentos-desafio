@@ -24,7 +24,7 @@ namespace DesafioFundamentos.Models
                         VeiculoService.AdicionarVeiculo();
                         break;
                     case "2":
-                        VeiculoService.ListarVeiculos();
+                        VeiculoService.ListarTodosOsVeiculos();
                         break;
                     case "3":
                         VeiculoService.ListarVeiculoPorPlaca();
