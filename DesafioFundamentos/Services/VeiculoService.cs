@@ -99,21 +99,31 @@ namespace Services
 
             if (veiculo != null)
             {
-                Console.Write("Digite a quantidade de horas que o veículo permaneceu estacionado: ");
-                string horasEstacionado = Console.ReadLine();
+                Console.Write("Digite a quantidade de horas que o veículo permaneceu estacionado (no formato hh:mm): ");
+                string[] partesHorasMin = Console.ReadLine().Split(':');
 
-                if (int.TryParse(horasEstacionado, out int horas) && horas > 0)
+                if (partesHorasMin.Length == 2 && 
+                int.TryParse(partesHorasMin[0], out int horas) && 
+                int.TryParse(partesHorasMin[1], out int minutos) && 
+                horas >= 0 && minutos >= 0 && 
+                minutos < 60)
                 {
-                    decimal valorTotal = estacionamento.CalculaPrecoInicialMaisPrecoPorHora() * horas;
-                    VeiculoRepositorio.DeletarVeiculo(placa);
+                    decimal valorTotalGastoEstacionado;
+                    if(minutos > 0)
+                    {
+                        valorTotalGastoEstacionado = estacionamento.CalculaPrecoInicialMaisPrecoPorHora() * (horas + 1);
+                    }
+                    else
+                    {
+                        valorTotalGastoEstacionado = estacionamento.CalculaPrecoInicialMaisPrecoPorHora() * horas;
+                    }
 
-                    Console.WriteLine($"O veículo de Placa: {placa}, foi removido e o preço total foi de: {valorTotal.ToString("C1")}");
+                    VeiculoRepositorio.DeletarVeiculo(placa);
+                    Console.WriteLine($"O veículo de Placa: {placa}, foi removido e o preço total foi de: {valorTotalGastoEstacionado.ToString("C2")}");
                 }
                 else
                 {
-                    Console.WriteLine("Certifique-se de digitar um valor inteiro maior que zero.");
-                    Console.WriteLine("Precione qualquer tecla para para continuar removendo!");
-                    Console.ReadKey();
+                    Console.WriteLine("Formato inválido. Por favor, digite as horas no formato hh:mm.");
                 }
             }
             else
