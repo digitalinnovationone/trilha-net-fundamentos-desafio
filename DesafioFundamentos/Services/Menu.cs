@@ -14,8 +14,9 @@ namespace DesafioFundamentos.Models
                 Console.WriteLine("1 - Adicionar um Novo Veículo");
                 Console.WriteLine("2 - Listar Todos os Veículos");
                 Console.WriteLine("3 - Localizar Veículo por Placa");
-                Console.WriteLine("4 - Remover um Veículo Existente");
-                Console.WriteLine("5 - Encerrar o Programa");
+                Console.WriteLine("4 - Editar Veículo");
+                Console.WriteLine("5 - Remover um Veículo Existente");
+                Console.WriteLine("6 - Encerrar o Programa");
                 Console.Write("Opção: ");
 
                 switch (Console.ReadLine())
@@ -30,9 +31,12 @@ namespace DesafioFundamentos.Models
                         VeiculoService.ListarVeiculoPorPlaca();
                         break;
                     case "4":
-                        VeiculoService.RemoverVeiculo();
+                        VeiculoService.EditarVeiculo();
                         break;
                     case "5":
+                        VeiculoService.RemoverVeiculo();
+                        break;
+                    case "6":
                         ExibirCancelarPrograma();
                         Environment.Exit(0);
                         break;
@@ -43,39 +47,6 @@ namespace DesafioFundamentos.Models
 
                 Console.WriteLine("Pressione uma tecla para continuar");
                 Console.ReadKey();
-            }
-        }
-
-        public static void ExibirMenuSecundario()
-        {
-            while (true)
-            {
-                Console.Clear();
-                Console.WriteLine("==== Escolha uma Opção ====");
-                Console.WriteLine("1 - Adicionar um Novo Veículo");
-                Console.WriteLine("2 - Localizar Veículo por Placa");
-                Console.WriteLine("3 - Remover um Veículo Existente");
-                Console.WriteLine("4 - Voltar para o Menu Principal");
-                Console.Write("Opção: ");
-
-                switch (Console.ReadLine())
-                {
-                    case "1":
-                        VeiculoService.AdicionarVeiculo();
-                        break;
-                    case "2":
-                        VeiculoService.ListarVeiculoPorPlaca();
-                        break;
-                    case "3":
-                        VeiculoService.RemoverVeiculo();
-                        break;
-                    case "4":
-                        ExibirMenuPrimario();
-                        break;
-                    default:
-                        Console.WriteLine("Opção inválida!");
-                        break;
-                }
             }
         }
 
