@@ -16,26 +16,25 @@ namespace Services
             {
                 if (VeiculoRepositorio.ExisteVeiculoPorPlaca(placa))
                 {
-                    Console.WriteLine($"Veículo de Placa: {placa} já está estacionado.");
+                    Console.WriteLine($"Veículo de Placa Nº: {placa} já está estacionado.");
                     return;
                 }
 
-                Veiculo veiculo = new Veiculo()
+                Veiculo veiculo = new()
                 {
                     Placa = placa,
                 };
                 VeiculoRepositorio.AdicionarVeiculo(veiculo);
 
-                Console.WriteLine($"A placa informada é válida! \nVeículo {placa} estacionado com sucesso!!");
+                Console.WriteLine($"A placa informada é válida! \nVeículo de placa Nº {placa}, foi estacionado com sucesso!!");
             }
             else
             {
-                Console.WriteLine("A placa informada não é válida!");
+                Console.WriteLine("O número da placa informada não é válida!");
             }
 
             Console.ReadKey();
             Console.Clear();
-            Menu.ExibirMenuSecundario();
         }
 
         public static void ListarTodosOsVeiculos()
@@ -46,12 +45,10 @@ namespace Services
             if (veiculos.Count != 0)
             {
                 Console.WriteLine("Os veículos estacionados são:");
-
-                int contadorVeiculo = 1;
-                foreach (var veiculo in veiculos)
+                
+                for (int i = 0; i < veiculos.Count; i++)
                 {
-                    Console.WriteLine($"Vaga {contadorVeiculo} - Veículo de Placa: {veiculo} está estacionado!");
-                    contadorVeiculo++;
+                    Console.WriteLine($"Vaga {i + 1} - Veículo de Placa Nº: {veiculos[i]} está estacionado!");
                 }
             }
             else
@@ -75,14 +72,33 @@ namespace Services
 
             if (VeiculoRepositorio.ExisteVeiculoPorPlaca(placa))
             {
-                Console.WriteLine($"Veículo de Placa: {placa} está estacionado.");
+                Console.WriteLine($"Veículo de Placa Nº: {placa} está estacionado.");
             }
             else
             {
                 Console.WriteLine($"O veículo informado NÃO está cadastrado em nosso sistema!");
             }
-            Console.ReadKey();
-            return;
+        }
+
+        public static void EditarVeiculo()
+        {
+            Console.Clear();
+            Console.Write("Digite a placa do veículo: ");
+            string placa = Console.ReadLine().ToUpper().Replace("-", "");
+            var veiculo = VeiculoRepositorio.ListarUmVeiculo(placa);
+
+            Console.Write("Digite a placa correta do veículo para editar: ");
+            string placaCorreta = Console.ReadLine().ToUpper().Replace("-", "");
+
+            if (veiculo != null)
+            {
+                veiculo.Placa = placaCorreta;
+                Console.WriteLine($"O veículo de placa Nº {placa}, foi atualizado para a placa Nº {placaCorreta}.");
+            }
+            else
+            {
+                Console.WriteLine("A placa informada não é válida!");
+            }
         }
 
         public static void RemoverVeiculo()
@@ -98,7 +114,7 @@ namespace Services
             if (veiculo != null)
             {
                 Console.Write("Digite a quantidade de horas que o veículo permaneceu estacionado (no formato hh:mm): ");
-                string[] partesHorasMin = Console.ReadLine().Split(':');
+                string[] partesHorasMin = Console.ReadLine().Split(':'); 
 
                 if (partesHorasMin.Length == 2 && 
                 int.TryParse(partesHorasMin[0], out int horas) && 
@@ -117,7 +133,7 @@ namespace Services
                     }
 
                     VeiculoRepositorio.DeletarVeiculo(placa);
-                    Console.WriteLine($"O veículo de Placa: {placa}, foi removido e o preço total foi de: {valorTotalGastoEstacionado.ToString("C2")}");
+                    Console.WriteLine($"O veículo de Placa Nº: {placa}, foi removido e o preço total foi de: {valorTotalGastoEstacionado.ToString("C2")}");
                 }
                 else
                 {
@@ -131,7 +147,6 @@ namespace Services
 
             Console.ReadKey();
             Console.Clear();
-            Menu.ExibirMenuSecundario();
         }
 
         private static bool ValidarPlaca(string placa)
