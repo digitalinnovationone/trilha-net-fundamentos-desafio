@@ -46,12 +46,6 @@ Você foi contratado para construir um sistema para um estacionamento, que será
 4. **Remover um Veículo Existente**
 5. **Encerrar o Programa**
 
-## Deverá ser feito um menu interativo secundário com as seguintes ações implementadas:
-1. **Adicionar um Novo Veículo**
-2. **Localizar Veículo por Placa**
-3. **Remover um Veículo Existente**
-4. **Voltar para o Menu Principal**
-
 ## Testes de Segurança de Software
 
 Os testes de segurança de software desempenham um papel crucial no desenvolvimento de software, visando identificar e corrigir vulnerabilidades que poderiam ser exploradas por atacantes. Foram empregados ataques simulados em pontos vulneráveis da aplicação, resultando na implementação de correções efetivas.
