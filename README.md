@@ -89,8 +89,9 @@ Os testes de segurança de software desempenham um papel crucial no desenvolvime
 ## Características
 
 Características do projeto:
-- Estacionar um veículo
-- Listar os veículo
+- Adicionar veículo
+- Editar veículos 
+- Listar todos os veículos 
 - Listar um veículo
-- Excluir um Veículo
+- Excluir Veículo
 - Calcular o valor por tempo estacionado
