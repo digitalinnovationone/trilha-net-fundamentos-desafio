@@ -6,7 +6,7 @@
 [SITE DA DIO](https://web.dio.me/)
 
 ## Contexto
-Você foi contratado para construir um sistema para um estacionamento, que será usado para gerenciar os veículos estacionados e realizar suas operações, como por exemplo adicionar um veículo, remover um veículo (e exibir o valor cobrado durante o período) listar um veículo e listar todos os veículos.
+Você foi contratado para construir um sistema para um estacionamento, que será usado para gerenciar os veículos estacionados e realizar suas operações, como por exemplo adicionar um veículo, editar um veículo, remover um veículo (e exibir o valor cobrado durante o período) listar um veículo e listar todos os veículos.
 
 ## Diagrama de Classe
 <h1 align="center"> 
@@ -28,6 +28,7 @@ Você foi contratado para construir um sistema para um estacionamento, que será
 - **AdicionarVeiculo**: Solicita ao usuário uma placa, valida a placa, verifica se o veículo já está estacionado, cria um novo objeto Veiculo, o adiciona ao repositório e exibe mensagens apropriadas.
 - **ListarTodosOsVeiculos**: Consulta todos os veículos no repositório e exibe suas informações ou informa se não há veículos estacionados.
 - **ListarVeiculoPorPlaca**: é responsável por permitir a busca de um veículo específico no sistema de estacionamento com base na placa informada pelo usuário.
+- **EditarVeiculo**: Solicita a entrada da placa atual e a nova placa do veículo. Se o veículo estiver estacionado, atualiza a placa e exibe uma mensagem. 
 - **RemoverVeiculo**: Solicita ao usuário a placa do veículo a ser removido, cria uma instância de **Estacionamento**, consulta o veículo no repositório, calcula o valor total com base nas horas, remove o veículo do repositório e exibe mensagens apropriadas.
 - **ValidarPlaca**: Valida a placa do veículo com base em critérios específicos.
 
@@ -39,7 +40,7 @@ Você foi contratado para construir um sistema para um estacionamento, que será
 - **ListarUmVeiculo**: Método público que consulta um veículo específico com base na placa.
 - **DeletarVeiculo**:  Método público que exclui um veículo com base na placa.
 
-## Deverá ser feito um menu interativo primário com as seguintes ações implementadas:
+## Classe Menu:
 1. **Adicionar um Novo Veículo**
 2. **Listar Todos os Veículos**
 3. **Localizar Veículo por Placa**
@@ -89,8 +90,9 @@ Os testes de segurança de software desempenham um papel crucial no desenvolvime
 ## Características
 
 Características do projeto:
-- Estacionar um veículo
-- Listar os veículo
+- Adicionar veículo
+- Editar veículos 
+- Listar todos os veículos 
 - Listar um veículo
-- Excluir um Veículo
+- Excluir Veículo
 - Calcular o valor por tempo estacionado
