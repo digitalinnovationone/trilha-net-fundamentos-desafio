@@ -58,7 +58,6 @@ Os testes de segurança de software desempenham um papel crucial no desenvolvime
 - [C#](https://learn.microsoft.com/pt-br/dotnet/csharp/tour-of-csharp/)
 - [.NET](https://dotnet.microsoft.com/pt-br/learn/dotnet/what-is-dotnet)
 - [Visual Studio Code](https://code.visualstudio.com)
-- [Trello](https://trello.com/home)
 
 ## Serviços Usados
 
