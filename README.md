@@ -95,4 +95,3 @@ Características do projeto:
 - Listar todos os veículos 
 - Listar um veículo
 - Excluir Veículo
-- Calcular o valor por tempo estacionado
