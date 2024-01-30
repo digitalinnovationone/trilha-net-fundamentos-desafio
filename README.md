@@ -3,8 +3,6 @@
   </br>
 </h1>
 
-[SITE DA DIO](https://web.dio.me/)
-
 ## Contexto
 Você foi contratado para construir um sistema para um estacionamento, que será usado para gerenciar os veículos estacionados e realizar suas operações, como por exemplo adicionar um veículo, editar um veículo, remover um veículo (e exibir o valor cobrado durante o período) listar um veículo e listar todos os veículos.
 
