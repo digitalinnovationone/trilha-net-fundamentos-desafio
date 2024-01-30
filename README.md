@@ -16,7 +16,7 @@ Você foi contratado para construir um sistema para um estacionamento, que será
 - A classe **Veiculo** tem um atributo privado chamado **Placa** do tipo **string**.
 - O método **ToString** é sobrescrito para fornecer uma representação textual do objeto, retornando a placa do veículo.
 
-## Classe Estacionamenoto:
+## Classe Estacionamento:
 - A classe **Estacionamento** tem dois atributos privados: **PrecoInicial** e **PrecoPorHora**, ambos do tipo decimal.
 - O construtor **Estacionamento** recebe dois parâmetros (precoInicial e precoPorHora) para inicializar os atributos da classe.
 - O método **CalculaPrecoInicialMaisPrecoPorHora** retorna a soma dos valores de **PrecoInicial** e **PrecoPorHora**.
