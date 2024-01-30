@@ -28,6 +28,7 @@ Você foi contratado para construir um sistema para um estacionamento, que será
 - **AdicionarVeiculo**: Solicita ao usuário uma placa, valida a placa, verifica se o veículo já está estacionado, cria um novo objeto Veiculo, o adiciona ao repositório e exibe mensagens apropriadas.
 - **ListarTodosOsVeiculos**: Consulta todos os veículos no repositório e exibe suas informações ou informa se não há veículos estacionados.
 - **ListarVeiculoPorPlaca**: é responsável por permitir a busca de um veículo específico no sistema de estacionamento com base na placa informada pelo usuário.
+- **EditarVeiculo**: Solicita a entrada da placa atual e a nova placa do veículo. Se o veículo estiver estacionado, atualiza a placa e exibe uma mensagem. 
 - **RemoverVeiculo**: Solicita ao usuário a placa do veículo a ser removido, cria uma instância de **Estacionamento**, consulta o veículo no repositório, calcula o valor total com base nas horas, remove o veículo do repositório e exibe mensagens apropriadas.
 - **ValidarPlaca**: Valida a placa do veículo com base em critérios específicos.
 
