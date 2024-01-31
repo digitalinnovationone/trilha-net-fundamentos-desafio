@@ -9,14 +9,14 @@ namespace Services
         public static void AdicionarVeiculo()
         {
             Console.Clear();
-            Console.Write("Digite a placa do veículo para estacionar: ");
+            Console.Write("Digite a placa do veículo para estacionar ( ex: DSA1S24 ): ");
             string placa = Console.ReadLine().ToUpper().Replace("-", "");
 
             if (ValidarPlaca(placa))
             {
                 if (VeiculoRepositorio.ExisteVeiculoPorPlaca(placa))
                 {
-                    Console.WriteLine($"Veículo de Placa Nº: {placa} já está estacionado.");
+                    Console.WriteLine($"Veículo de Placa Nº: {placa}, já está estacionado.");
                     return;
                 }
 
@@ -26,7 +26,7 @@ namespace Services
                 };
                 VeiculoRepositorio.AdicionarVeiculo(veiculo);
 
-                Console.WriteLine($"A placa informada é válida! \nVeículo de placa Nº {placa}, foi estacionado com sucesso!!");
+                Console.WriteLine($"O Veículo de placa Nº {placa}, foi estacionado com sucesso!!");
             }
             else
             {
@@ -60,7 +60,7 @@ namespace Services
         public static void ListarVeiculoPorPlaca()
         {
             Console.Clear();
-            Console.Write("Digite a placa do veículo estacionado: ");
+            Console.Write("Digite a placa do veículo estacionado ( ex: DSA1S24 ): ");
             string placa = Console.ReadLine().ToUpper().Replace("-", "");
 
             if (placa.Length > 7 || placa.Length < 7)
@@ -83,7 +83,7 @@ namespace Services
         public static void EditarVeiculo()
         {
             Console.Clear();
-            Console.Write("Digite a placa do veículo: ");
+            Console.Write("Digite a placa do veículo ( ex: DSA1S24 ): ");
             string placa = Console.ReadLine().ToUpper().Replace("-", "");
             var veiculo = VeiculoRepositorio.ListarUmVeiculo(placa);
 
@@ -104,7 +104,7 @@ namespace Services
         public static void RemoverVeiculo()
         {
             Console.Clear();
-            Console.Write("Digite a placa do veículo para remover: ");
+            Console.Write("Digite a placa do veículo para remover ( ex: DSA1S24 ): ");
             string placa = Console.ReadLine().ToUpper().Replace("-", "");
 
             Estacionamento estacionamento = new(precoInicial: 20.50M, precoPorHora: 2.50M);
@@ -122,8 +122,9 @@ namespace Services
                 horas >= 0 && minutos >= 0 && 
                 minutos < 60)
                 {
+                    int toleranciaMin = 15;
                     decimal valorTotalGastoEstacionado;
-                    if(minutos > 15)
+                    if(minutos > toleranciaMin)
                     {
                         valorTotalGastoEstacionado = estacionamento.CalculaPrecoInicialMaisPrecoPorHora(horas) + estacionamento.PrecoPorHora;
                     }
@@ -157,12 +158,12 @@ namespace Services
 
             if (char.IsLetter(placa, 4))
             {
-                var padraoMercosul = new Regex("[a-zA-Z]{3}[0-9]{1}[a-zA-Z]{1}[0-9]{2}");
+                Regex padraoMercosul = new Regex("[a-zA-Z]{3}[0-9]{1}[a-zA-Z]{1}[0-9]{2}");
                 return padraoMercosul.IsMatch(placa);
             }
             else
             {
-                var padraoNormal = new Regex("[a-zA-Z]{3}[0-9]{4}");
+                Regex padraoNormal = new Regex("[a-zA-Z]{3}[0-9]{4}");
                 return padraoNormal.IsMatch(placa);
             }
         }
