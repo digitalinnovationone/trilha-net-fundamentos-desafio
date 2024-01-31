@@ -3,8 +3,6 @@
   </br>
 </h1>
 
-[SITE DA DIO](https://web.dio.me/)
-
 ## Contexto
 Você foi contratado para construir um sistema para um estacionamento, que será usado para gerenciar os veículos estacionados e realizar suas operações, como por exemplo adicionar um veículo, editar um veículo, remover um veículo (e exibir o valor cobrado durante o período) listar um veículo e listar todos os veículos.
 
@@ -18,7 +16,7 @@ Você foi contratado para construir um sistema para um estacionamento, que será
 - A classe **Veiculo** tem um atributo privado chamado **Placa** do tipo **string**.
 - O método **ToString** é sobrescrito para fornecer uma representação textual do objeto, retornando a placa do veículo.
 
-## Classe Estacionamenoto:
+## Classe Estacionamento:
 - A classe **Estacionamento** tem dois atributos privados: **PrecoInicial** e **PrecoPorHora**, ambos do tipo decimal.
 - O construtor **Estacionamento** recebe dois parâmetros (precoInicial e precoPorHora) para inicializar os atributos da classe.
 - O método **CalculaPrecoInicialMaisPrecoPorHora** retorna a soma dos valores de **PrecoInicial** e **PrecoPorHora**.
@@ -53,7 +51,6 @@ Os testes de segurança de software desempenham um papel crucial no desenvolvime
 
 - **Validação de Placas:** A classe **VeiculoService** possui um método **ValidarPlaca** que implementa verificações na entrada do usuário para validar a placa do veículo. Esse método utiliza expressões regulares para garantir que a placa siga um padrão específico.
 - **Tratamento de Exceções:** Há alguns blocos de código que tratam exceções, por exemplo, na entrada do número de horas estacionado e no tratamento de formatos inválidos. Isso ajuda a evitar que o programa quebre inesperadamente e fornece uma melhor experiência para o usuário.
-- **Interface do Usuário Melhorada:** A aplicação utiliza uma interface de console simples, e a validação de entrada de usuário é feita de forma básica. Em caso de uma aplicação maior, seria necessário uma interface mais robusta.
 - **Manipulação Segura de Dados:** A manipulação de dados é realizada internamente, principalmente no repositório de veículos (VeiculoRepositorio). Dessa forma, garante que o tratamento dos dados seja feito na camada de serviços e armazenados na camada de dados.
 
 ## Ferramentas Usadas
@@ -61,7 +58,6 @@ Os testes de segurança de software desempenham um papel crucial no desenvolvime
 - [C#](https://learn.microsoft.com/pt-br/dotnet/csharp/tour-of-csharp/)
 - [.NET](https://dotnet.microsoft.com/pt-br/learn/dotnet/what-is-dotnet)
 - [Visual Studio Code](https://code.visualstudio.com)
-- [Trello](https://trello.com/home)
 
 ## Serviços Usados
 
@@ -95,4 +91,3 @@ Características do projeto:
 - Listar todos os veículos 
 - Listar um veículo
 - Excluir Veículo
-- Calcular o valor por tempo estacionado
