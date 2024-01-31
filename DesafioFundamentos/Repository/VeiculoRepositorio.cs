@@ -28,7 +28,7 @@ namespace Repository
 
         public static Veiculo ListarUmVeiculo(string placa)
         {
-            return veiculos.FirstOrDefault(e => e.Placa == placa);
+            return veiculos.SingleOrDefault(e => e.Placa == placa);
         }
 
         public static void DeletarVeiculo(string placa)
@@ -37,4 +37,5 @@ namespace Repository
             veiculos.Remove(veiculo);
         }
     }
+
 }
