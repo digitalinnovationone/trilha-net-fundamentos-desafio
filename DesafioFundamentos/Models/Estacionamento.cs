@@ -11,9 +11,9 @@ namespace DesafioFundamentos.Models
             PrecoPorHora = precoPorHora;
         }
 
-        public decimal CalculaPrecoInicialMaisPrecoPorHora()
+        public decimal CalculaPrecoInicialMaisPrecoPorHora(int horas)
         {
-            return PrecoInicial + PrecoPorHora; 
+            return (PrecoInicial + PrecoPorHora) * horas; 
         }
     }
 }
