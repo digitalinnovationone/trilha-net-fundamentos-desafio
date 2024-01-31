@@ -13,7 +13,7 @@ Você foi contratado para construir um sistema para um estacionamento, que será
 </h1>
 
 ## Classe Veiculo:
-- A classe **Veiculo** tem um atributo privado chamado **Placa** do tipo **string**.
+- A classe **Veiculo** tem um atributo público chamado **Placa** do tipo **string**.
 - O método **ToString** é sobrescrito para fornecer uma representação textual do objeto, retornando a placa do veículo.
 
 ## Classe Estacionamento:
