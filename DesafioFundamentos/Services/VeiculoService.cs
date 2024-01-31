@@ -107,7 +107,7 @@ namespace Services
             Console.Write("Digite a placa do veículo para remover: ");
             string placa = Console.ReadLine().ToUpper().Replace("-", "");
 
-            Estacionamento estacionamento = new(precoInicial: 10.50M, precoPorHora: 10.50M);
+            Estacionamento estacionamento = new(precoInicial: 20.50M, precoPorHora: 2.50M);
 
             var veiculo = VeiculoRepositorio.ListarUmVeiculo(placa);
 
@@ -123,13 +123,13 @@ namespace Services
                 minutos < 60)
                 {
                     decimal valorTotalGastoEstacionado;
-                    if(minutos > 0)
+                    if(minutos > 15)
                     {
-                        valorTotalGastoEstacionado = estacionamento.CalculaPrecoInicialMaisPrecoPorHora() * (horas + 1);
+                        valorTotalGastoEstacionado = estacionamento.CalculaPrecoInicialMaisPrecoPorHora(horas) + estacionamento.PrecoPorHora;
                     }
                     else
                     {
-                        valorTotalGastoEstacionado = estacionamento.CalculaPrecoInicialMaisPrecoPorHora() * horas;
+                        valorTotalGastoEstacionado = estacionamento.CalculaPrecoInicialMaisPrecoPorHora(horas);
                     }
 
                     VeiculoRepositorio.DeletarVeiculo(placa);
