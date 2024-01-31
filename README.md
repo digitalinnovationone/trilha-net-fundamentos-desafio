@@ -13,13 +13,13 @@ Você foi contratado para construir um sistema para um estacionamento, que será
 </h1>
 
 ## Classe Veiculo:
-- A classe **Veiculo** tem um atributo privado chamado **Placa** do tipo **string**.
+- A classe **Veiculo** tem um atributo público chamado **Placa** do tipo **string**.
 - O método **ToString** é sobrescrito para fornecer uma representação textual do objeto, retornando a placa do veículo.
 
 ## Classe Estacionamento:
 - A classe **Estacionamento** tem dois atributos privados: **PrecoInicial** e **PrecoPorHora**, ambos do tipo decimal.
 - O construtor **Estacionamento** recebe dois parâmetros (precoInicial e precoPorHora) para inicializar os atributos da classe.
-- O método **CalculaPrecoInicialMaisPrecoPorHora** retorna a soma dos valores de **PrecoInicial** e **PrecoPorHora**.
+- O método **CalculaPrecoInicialMaisPrecoPorHora** retorna a soma dos valores de **PrecoInicial** e **PrecoPorHora** e multiplica pelas horas.
 
 ## Classe VeiculoService:
 - A classe **VeiculoService** tem métodos públicos que interagem com a camada de dados (**VeiculoRepositorio**) e lida com a lógica de negócios relacionada aos veículos.
@@ -58,11 +58,11 @@ Os testes de segurança de software desempenham um papel crucial no desenvolvime
 - [C#](https://learn.microsoft.com/pt-br/dotnet/csharp/tour-of-csharp/)
 - [.NET](https://dotnet.microsoft.com/pt-br/learn/dotnet/what-is-dotnet)
 - [Visual Studio Code](https://code.visualstudio.com)
+- [Draw.io](https://www.drawio.com/)
 
 ## Serviços Usados
 
 - [Github](https://github.com/)
-- [Draw.io](https://www.drawio.com/)
 - [Trello do Projeto](https://trello.com/b/QklyygDj/gerenciador-de-estacionamento)
 
 ## Como Usar o programa
