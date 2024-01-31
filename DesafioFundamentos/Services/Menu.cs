@@ -9,15 +9,18 @@ namespace DesafioFundamentos.Models
             while (true)
             {
                 Console.Clear();
-                Console.WriteLine("==== Bem-vindo ao Gerenciador de Veículos ====");
-                Console.WriteLine("Escolha uma das seguintes opções:");
-                Console.WriteLine("1 - Adicionar um Novo Veículo");
-                Console.WriteLine("2 - Listar Todos os Veículos");
-                Console.WriteLine("3 - Localizar Veículo por Placa");
-                Console.WriteLine("4 - Editar Veículo");
-                Console.WriteLine("5 - Remover um Veículo Existente");
-                Console.WriteLine("6 - Encerrar o Programa");
-                Console.Write("Opção: ");
+                Console.WriteLine("┌────────────────────────────────────────────────────┐");
+                Console.WriteLine("│  Seja Bem-vindo ao Gerenciador de Estacionamento   │");
+                Console.WriteLine("├────────────────────────────────────────────────────┤");
+                Console.WriteLine("│ 1. Adicionar um Veículo                            │");
+                Console.WriteLine("│ 2. Listar todos os Veículos                        │");
+                Console.WriteLine("│ 3. Listar um Veículos                              │");
+                Console.WriteLine("│ 4. Editar um Veículo                               │");
+                Console.WriteLine("│ 5. Remover um Veículo                              │");
+                Console.WriteLine("│ 6. Sair do Sistema                                 │");
+                Console.WriteLine("└────────────────────────────────────────────────────┘");
+                Console.WriteLine();
+                Console.Write("Digite a sua opção » ");
 
                 switch (Console.ReadLine())
                 {
@@ -41,6 +44,7 @@ namespace DesafioFundamentos.Models
                         Environment.Exit(0);
                         break;
                     default:
+                        Console.Clear();
                         Console.WriteLine("Opção inválida");
                         break;
                 }
