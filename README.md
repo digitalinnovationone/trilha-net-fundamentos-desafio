@@ -14,7 +14,7 @@ Você foi contratado para construir um sistema para um estacionamento, que será
 
 ## Classe Veiculo:
 - A classe **Veiculo** tem um atributo público chamado **Placa** do tipo **string**.
-- O construtor Veiculo recebe um parâmetro (placa) para inicializar o atributo da classe.
+- O construtor **Veiculo** recebe um parâmetro (placa) para inicializar o atributo da classe.
 - O método **ToString** é sobrescrito para fornecer uma representação textual do objeto, retornando a placa do veículo.
 
 ## Classe Estacionamento:
