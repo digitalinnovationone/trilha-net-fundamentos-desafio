@@ -49,7 +49,8 @@ namespace DesafioFundamentos.Models
                         break;
                 }
 
-                Console.WriteLine("Pressione uma tecla para continuar");
+                Console.WriteLine();
+                Console.Write("Pressione ENTER para continuar...");
                 Console.ReadKey();
             }
         }
@@ -59,6 +60,7 @@ namespace DesafioFundamentos.Models
             Console.Clear();
             Console.WriteLine("O programa será encerrado em 5 segundos...");
             Thread.Sleep(5000);
+            Console.Clear();
             Console.WriteLine("Programa encerrado.\nAgradecemos por utilizar nossos serviços!");
         }
     }

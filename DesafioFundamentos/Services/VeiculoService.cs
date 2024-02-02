@@ -11,44 +11,45 @@ namespace Services
             Console.Clear();
             Console.Write("Digite a placa do veículo para estacionar ( ex: DSA1S24 ): ");
             string placa = Console.ReadLine().ToUpper().Replace("-", "");
+            Console.Clear();
 
             if (ValidarPlaca(placa))
             {
                 if (VeiculoRepositorio.ExisteVeiculoPorPlaca(placa))
                 {
-                    Console.WriteLine($"Veículo de Placa Nº: {placa}, já está estacionado.");
+                    Console.WriteLine("┌───────────────────────────────────────────────────┐");
+                    Console.WriteLine($"│ Veículo de Placa Nº: {placa}, já está estacionado │");
+                    Console.WriteLine("└───────────────────────────────────────────────────┘");
                     return;
                 }
 
-                Veiculo veiculo = new()
-                {
-                    Placa = placa,
-                };
+                Veiculo veiculo = new(placa);
                 VeiculoRepositorio.AdicionarVeiculo(veiculo);
-
-                Console.WriteLine($"O Veículo de placa Nº {placa}, foi estacionado com sucesso!!");
+                Console.WriteLine("┌──────────────────────────────────────────────────────────────┐");
+                Console.WriteLine($"│ O Veículo de placa Nº {placa}, foi estacionado com sucesso!! │");
+                Console.WriteLine("└──────────────────────────────────────────────────────────────┘");
             }
             else
             {
                 Console.WriteLine("O número da placa informada não é válida!");
             }
-
-            Console.ReadKey();
-            Console.Clear();
         }
 
         public static void ListarTodosOsVeiculos()
         {
             Console.Clear();
-            var veiculos = VeiculoRepositorio.ListarTodosVeiculos();
+            List<Veiculo> veiculos = VeiculoRepositorio.ListarTodosVeiculos();
 
             if (veiculos.Count != 0)
             {
-                Console.WriteLine("Os veículos estacionados são:");
+                Console.WriteLine("┌───────────────────────────────────────────────────────┐");
+                Console.WriteLine("                  VEÍCULOS ESTACIONADOS                  ");
                 
                 for (int i = 0; i < veiculos.Count; i++)
                 {
-                    Console.WriteLine($"Vaga {i + 1} - Veículo de Placa Nº: {veiculos[i]} está estacionado!");
+                   Console.WriteLine("┌───────────────────────────────────────────────────────┐");
+                   Console.WriteLine($"│  {i + 1} - O Veículo de Placa Nº: {veiculos[i]} está estacionado! │");
+                   Console.WriteLine("└───────────────────────────────────────────────────────┘");
                 }
             }
             else
@@ -62,6 +63,7 @@ namespace Services
             Console.Clear();
             Console.Write("Digite a placa do veículo estacionado ( ex: DSA1S24 ): ");
             string placa = Console.ReadLine().ToUpper().Replace("-", "");
+            Console.Clear();
 
             if (placa.Length > 7 || placa.Length < 7)
             {
@@ -72,7 +74,9 @@ namespace Services
 
             if (VeiculoRepositorio.ExisteVeiculoPorPlaca(placa))
             {
-                Console.WriteLine($"Veículo de Placa Nº: {placa} está estacionado.");
+                Console.WriteLine("┌───────────────────────────────────────────────┐");
+                Console.WriteLine($"│ Veículo de Placa Nº: {placa} está estacionado │");
+                Console.WriteLine("└───────────────────────────────────────────────┘");
             }
             else
             {
@@ -85,19 +89,34 @@ namespace Services
             Console.Clear();
             Console.Write("Digite a placa do veículo ( ex: DSA1S24 ): ");
             string placa = Console.ReadLine().ToUpper().Replace("-", "");
-            var veiculo = VeiculoRepositorio.ListarUmVeiculo(placa);
+            Veiculo veiculo = VeiculoRepositorio.ListarUmVeiculo(placa);
+            Console.Clear();
 
-            Console.Write("Digite a placa correta do veículo para editar: ");
+            Console.Write("Digite a placa correta do veículo para editar ( ex: DSA1S24 ): ");
             string placaCorreta = Console.ReadLine().ToUpper().Replace("-", "");
+            Console.Clear();
 
-            if (veiculo != null)
+            if (ValidarPlaca(placaCorreta))
             {
-                veiculo.Placa = placaCorreta;
-                Console.WriteLine($"O veículo de placa Nº {placa}, foi atualizado para a placa Nº {placaCorreta}.");
+                if (placaCorreta == placa)
+                {
+                    Console.WriteLine("A placa informada não pode ser igual a placa anterior!");
+
+                } else if (veiculo != null)                 
+                {
+                    veiculo.Placa = placaCorreta;
+                    Console.WriteLine("┌───────────────────────────────────────────────────────────────────────┐");
+                    Console.WriteLine($"│ O veículo de placa Nº {placa}, foi atualizado para a placa Nº {placaCorreta} │");
+                    Console.WriteLine("└───────────────────────────────────────────────────────────────────────┘");
+                    
+                } else
+                {
+                    Console.WriteLine("A placa informada não é válida!");
+                }
             }
             else
             {
-                Console.WriteLine("A placa informada não é válida!");
+                Console.WriteLine("O número da placa informada não é válida!");
             }
         }
 
@@ -106,6 +125,7 @@ namespace Services
             Console.Clear();
             Console.Write("Digite a placa do veículo para remover ( ex: DSA1S24 ): ");
             string placa = Console.ReadLine().ToUpper().Replace("-", "");
+            Console.Clear();
 
             Estacionamento estacionamento = new(precoInicial: 20.50M, precoPorHora: 2.50M);
 
@@ -114,7 +134,8 @@ namespace Services
             if (veiculo != null)
             {
                 Console.Write("Digite a quantidade de horas que o veículo permaneceu estacionado (no formato hh:mm): ");
-                string[] partesHorasMin = Console.ReadLine().Split(':'); 
+                string[] partesHorasMin = Console.ReadLine().Split(':');
+                Console.Clear();
 
                 if (partesHorasMin.Length == 2 && 
                 int.TryParse(partesHorasMin[0], out int horas) && 
@@ -134,7 +155,9 @@ namespace Services
                     }
 
                     VeiculoRepositorio.DeletarVeiculo(placa);
-                    Console.WriteLine($"O veículo de Placa Nº: {placa}, foi removido e o preço total foi de: {valorTotalGastoEstacionado.ToString("C2")}");
+                    Console.WriteLine("┌──────────────────────────────────────────────────────────────────────────────┐");
+                    Console.WriteLine($"│ O veículo de Placa Nº: {placa}, foi removido e o preço total foi de {valorTotalGastoEstacionado.ToString("C2")} │");
+                    Console.WriteLine("└──────────────────────────────────────────────────────────────────────────────┘");
                 }
                 else
                 {
@@ -145,9 +168,6 @@ namespace Services
             {
                 Console.WriteLine("Desculpe, esse veículo não está estacionado aqui. Confira se digitou a placa corretamente");
             }
-
-            Console.ReadKey();
-            Console.Clear();
         }
 
         private static bool ValidarPlaca(string placa)
