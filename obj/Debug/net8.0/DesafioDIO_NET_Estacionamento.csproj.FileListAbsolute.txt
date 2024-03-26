@@ -1,0 +1,14 @@
+C:\Users\Gustavo\source\repos\DesafioDIO_NET_Estacionamento\DesafioDIO_NET_Estacionamento\bin\Debug\net8.0\DesafioDIO_NET_Estacionamento.exe
+C:\Users\Gustavo\source\repos\DesafioDIO_NET_Estacionamento\DesafioDIO_NET_Estacionamento\bin\Debug\net8.0\DesafioDIO_NET_Estacionamento.deps.json
+C:\Users\Gustavo\source\repos\DesafioDIO_NET_Estacionamento\DesafioDIO_NET_Estacionamento\bin\Debug\net8.0\DesafioDIO_NET_Estacionamento.runtimeconfig.json
+C:\Users\Gustavo\source\repos\DesafioDIO_NET_Estacionamento\DesafioDIO_NET_Estacionamento\bin\Debug\net8.0\DesafioDIO_NET_Estacionamento.dll
+C:\Users\Gustavo\source\repos\DesafioDIO_NET_Estacionamento\DesafioDIO_NET_Estacionamento\bin\Debug\net8.0\DesafioDIO_NET_Estacionamento.pdb
+C:\Users\Gustavo\source\repos\DesafioDIO_NET_Estacionamento\DesafioDIO_NET_Estacionamento\obj\Debug\net8.0\DesafioDIO_NET_Estacionamento.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Gustavo\source\repos\DesafioDIO_NET_Estacionamento\DesafioDIO_NET_Estacionamento\obj\Debug\net8.0\DesafioDIO_NET_Estacionamento.AssemblyInfoInputs.cache
+C:\Users\Gustavo\source\repos\DesafioDIO_NET_Estacionamento\DesafioDIO_NET_Estacionamento\obj\Debug\net8.0\DesafioDIO_NET_Estacionamento.AssemblyInfo.cs
+C:\Users\Gustavo\source\repos\DesafioDIO_NET_Estacionamento\DesafioDIO_NET_Estacionamento\obj\Debug\net8.0\DesafioDIO_NET_Estacionamento.csproj.CoreCompileInputs.cache
+C:\Users\Gustavo\source\repos\DesafioDIO_NET_Estacionamento\DesafioDIO_NET_Estacionamento\obj\Debug\net8.0\DesafioDIO_NET_Estacionamento.dll
+C:\Users\Gustavo\source\repos\DesafioDIO_NET_Estacionamento\DesafioDIO_NET_Estacionamento\obj\Debug\net8.0\refint\DesafioDIO_NET_Estacionamento.dll
+C:\Users\Gustavo\source\repos\DesafioDIO_NET_Estacionamento\DesafioDIO_NET_Estacionamento\obj\Debug\net8.0\DesafioDIO_NET_Estacionamento.pdb
+C:\Users\Gustavo\source\repos\DesafioDIO_NET_Estacionamento\DesafioDIO_NET_Estacionamento\obj\Debug\net8.0\DesafioDIO_NET_Estacionamento.genruntimeconfig.cache
+C:\Users\Gustavo\source\repos\DesafioDIO_NET_Estacionamento\DesafioDIO_NET_Estacionamento\obj\Debug\net8.0\ref\DesafioDIO_NET_Estacionamento.dll
