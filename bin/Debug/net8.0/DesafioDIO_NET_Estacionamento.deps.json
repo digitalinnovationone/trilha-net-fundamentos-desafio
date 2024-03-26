@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "DesafioDIO_NET_Estacionamento/1.0.0": {
+        "runtime": {
+          "DesafioDIO_NET_Estacionamento.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "DesafioDIO_NET_Estacionamento/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
