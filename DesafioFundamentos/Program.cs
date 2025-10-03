@@ -23,11 +23,20 @@ bool exibirMenu = true;
 while (exibirMenu)
 {
     Console.Clear();
+
+    // Desenho de carro em ASCII
+    Console.WriteLine("        ______");
+    Console.WriteLine("       /|_||_\\`.__");
+    Console.WriteLine("      (   _    _ _\\");
+    Console.WriteLine("      =`-(_)--(_)-'");
+
+    Console.WriteLine();
     Console.WriteLine("Digite a sua opção:");
     Console.WriteLine("1 - Cadastrar veículo");
     Console.WriteLine("2 - Remover veículo");
     Console.WriteLine("3 - Listar veículos");
     Console.WriteLine("4 - Encerrar");
+
 
     switch (Console.ReadLine())
     {
