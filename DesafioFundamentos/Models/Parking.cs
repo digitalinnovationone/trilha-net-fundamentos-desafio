@@ -44,18 +44,50 @@ namespace DesafioFundamentos.Models
                 Console.WriteLine("Sorry, this vehicle is not parked here. Check if you entered the vehicle plate number correctly.");
             }
         }
+        private void UpdateVehicle(string plate, string newPlate)
+        {
+            int index = vehicles.IndexOf(plate);
+
+            if (index != -1)
+            {
+                vehicles[index] = newPlate;
+                Console.WriteLine("Vehicle plate update successful!");
+            }
+        }
 
         public void ListVehicles()
         {
             // Verifica se há veículos no estacionamento
             if (vehicles.Any())
             {
+                string option, plate, newPlate;
                 Console.WriteLine("The parked vehicles are::");
 
                 foreach(string item in vehicles)
                 {
                     Console.WriteLine(item);
-                }      
+                }
+                Console.WriteLine("Do you want to edit a vehicle? y/n");
+                option = Console.ReadLine();
+                if (option.ToUpper() == "Y")
+                {
+                    Console.WriteLine("Enter a vehicle plate:");
+                    plate = Console.ReadLine();
+
+                    bool validate = vehicles.Contains(plate);
+
+                    if (validate)
+                    {
+                        Console.WriteLine("Enter a new vehicle plate:");
+                        newPlate = Console.ReadLine();
+
+                        UpdateVehicle(plate, newPlate);
+                    }
+                    else
+                    {
+                        Console.WriteLine("The vehicle plate not found");
+                    }
+                }
             }
             else
             {
