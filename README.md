@@ -19,7 +19,7 @@ A classe contém três variáveis, sendo:
 
 **veiculos**: É uma lista de string, representando uma coleção de veículos estacionados. Contém apenas a placa do veículo.
 
-A classe contém três métodos, sendo:
+A classe contém três métodos, sendo
 
 **AdicionarVeiculo**: Método responsável por receber uma placa digitada pelo usuário e guardar na variável **veiculos**.
 
@@ -35,4 +35,39 @@ Por último, deverá ser feito um menu interativo com as seguintes ações imple
 
 
 ## Solução
-O código está pela metade, e você deverá dar continuidade obedecendo as regras descritas acima, para que no final, tenhamos um programa funcional. Procure pela palavra comentada "TODO" no código, em seguida, implemente conforme as regras acima.
+**AdicionarVeiculo**
+- Foi implementado uma string "adicionaPlaca" no qual recebe a placa dos veículos que estão no estacionamento e adiciona os mesmos na lista "veiculos"
+```csharp
+    string adicionaPlaca = Console.ReadLine();
+    veiculos.Add(adicionaPlaca);
+```
+
+**RemoverVeiculo**
+- Adicionado um ReadLine a string "placa" para que pudesse receber a placa digitada pelo usúario.
+```csharp
+    string placa = Console.ReadLine();
+```
+
+- Adicionado um ReadLine a string "horas" para que pudesse receber a quantidade de horas digitada pelo usúario.
+```csharp
+    int horas = int.Parse(Console.ReadLine());
+```  
+
+- Na variavél "valorTotal" foi implementado o calculo para que ao remover o veículo mostrar pro usúario o valor que ficou a permanência do cliente no estacionamento.
+```csharp
+    decimal valorTotal = precoInicial + (precoPorHora * horas);
+```
+
+- Implementando função para remover o veículo da lista "veiculos" pegando pela string "placa".
+```csharp
+    veiculos.Remove(placa);
+```
+
+**ListarVeiculos**
+- Adicionado laço foreach para percorrer por toda a lista e apresentasse para o usúario as placas cadastradas no sistema.
+```csharp 
+    foreach (string veiculo in veiculos)
+    {
+        Console.WriteLine(veiculo);   
+    }
+```
