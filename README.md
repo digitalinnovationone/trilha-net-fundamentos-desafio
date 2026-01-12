@@ -1,38 +1,180 @@
-# DIO - Trilha .NET - Fundamentos
+# 🚗 Sistema de Estacionamento — Desafio DIO .NET  
 www.dio.me
 
-## Desafio de projeto
-Para este desafio, você precisará usar seus conhecimentos adquiridos no módulo de fundamentos, da trilha .NET da DIO.
+## 📌 Sobre o desafio
+Este projeto faz parte da **Trilha .NET — Fundamentos** da Digital Innovation One (DIO).  
+O objetivo é construir um sistema simples de estacionamento capaz de:
 
-## Contexto
-Você foi contratado para construir um sistema para um estacionamento, que será usado para gerenciar os veículos estacionados e realizar suas operações, como por exemplo adicionar um veículo, remover um veículo (e exibir o valor cobrado durante o período) e listar os veículos.
+- Cadastrar veículos  
+- Remover veículos (calculando o valor devido)  
+- Listar veículos  
+- Encerrar o programa  
 
-## Proposta
-Você precisará construir uma classe chamada "Estacionamento", conforme o diagrama abaixo:
-![Diagrama de classe estacionamento](diagrama_classe_estacionamento.png)
+Para isso, o desafio original exige a criação da classe **Estacionamento**, contendo:
 
-A classe contém três variáveis, sendo:
+- `precoInicial : decimal`  
+- `precoPorHora : decimal`  
+- `veiculos : List<string>`  
 
-**precoInicial**: Tipo decimal. É o preço cobrado para deixar seu veículo estacionado.
+E os métodos:
 
-**precoPorHora**: Tipo decimal. É o preço por hora que o veículo permanecer estacionado.
+- `AdicionarVeiculo()`  
+- `RemoverVeiculo()`  
+- `ListarVeiculos()`
 
-**veiculos**: É uma lista de string, representando uma coleção de veículos estacionados. Contém apenas a placa do veículo.
+Além de um menu interativo com as opções:
 
-A classe contém três métodos, sendo:
+1. Cadastrar veículo  
+2. Remover veículo  
+3. Listar veículos  
+4. Encerrar  
 
-**AdicionarVeiculo**: Método responsável por receber uma placa digitada pelo usuário e guardar na variável **veiculos**.
+---
 
-**RemoverVeiculo**: Método responsável por verificar se um determinado veículo está estacionado, e caso positivo, irá pedir a quantidade de horas que ele permaneceu no estacionamento. Após isso, realiza o seguinte cálculo: **precoInicial** * **precoPorHora**, exibindo para o usuário.
+# 🛠 Melhorias adicionadas (minhas contribuições)
 
-**ListarVeiculos**: Lista todos os veículos presentes atualmente no estacionamento. Caso não haja nenhum, exibir a mensagem "Não há veículos estacionados".
+Além de cumprir todos os requisitos do desafio, implementei diversas melhorias que tornam o sistema mais funcional, visualmente agradável e próximo de um software real.
 
-Por último, deverá ser feito um menu interativo com as seguintes ações implementadas:
-1. Cadastrar veículo
-2. Remover veículo
-3. Listar veículos
-4. Encerrar
+## ✨ **1. Menu Interativo com Navegação pelas Setas**
+- Interface amigável  
+- Destaque visual da opção selecionada  
+- Navegação com **↑** e **↓**
 
+## ✨ **2. Cabeçalho Fixo “SISTEMA DE ESTACIONAMENTO”**
+Sempre exibido **antes de qualquer entrada** do usuário para garantir identidade visual e organização.
 
-## Solução
-O código está pela metade, e você deverá dar continuidade obedecendo as regras descritas acima, para que no final, tenhamos um programa funcional. Procure pela palavra comentada "TODO" no código, em seguida, implemente conforme as regras acima.
+## ✨ **3. Persistência de Dados via JSON**
+Tudo é salvo em `data.json` automaticamente:
+- Veículos estacionados  
+- Histórico de remoções  
+- Preço inicial  
+- Preço por hora  
+
+E recarregado automaticamente ao iniciar o programa.
+
+## ✨ **4. Novo Menu: Configurar Preços**
+Agora o usuário pode alterar os valores a qualquer momento através do menu:
+```
+5. Configurar preços
+```
+
+## ✨ **5. Validação Real das Placas**
+Suporte para:
+- `ABC1234` (modelo antigo)  
+- `ABC1D23` (Mercosul)  
+
+Mensagens claras para erros.
+
+## ✨ **6. Histórico Completo de Remoções**
+Cada saída registra:
+- Placa  
+- Entrada  
+- Saída  
+- Horas  
+- Valor pago  
+
+Além disso:
+- Exibe total faturado  
+- Exibe vagas ocupadas  
+
+## ✨ **7. Cálculo Automático das Horas**
+Se o usuário apenas apertar ENTER ao remover um veículo:
+- O sistema calcula automaticamente o tempo de permanência.
+
+## ✨ **8. Formatação PT-BR**
+Todos os valores aparecem assim:
+```
+R$ 12,50
+```
+
+## ✨ **9. Código Organizado em 3 Arquivos**
+- `Program.cs`
+- `MenuUI.cs`
+- `Models/Estacionamento.cs`
+
+Organização semelhante a um projeto profissional.
+
+## ✨ **10. Interface Colorida e Mais Intuitiva**
+- Mensagens em verde (sucesso)
+- Vermelho (erro)
+- Amarelo (aviso)
+- Azul/ciano (títulos)
+
+---
+
+# 📂 Estrutura do Projeto
+
+```
+/DesafioFundamentos
+ ├── Program.cs
+ ├── MenuUI.cs
+ ├── Models/
+ │    └── Estacionamento.cs
+ ├── data.json   (gerado automaticamente)
+ └── README.md
+```
+
+---
+
+# ▶ Como executar
+
+No terminal:
+
+```bash
+dotnet run
+```
+
+O arquivo `data.json` será criado automaticamente na primeira execução.
+
+---
+
+# 📘 Funcionalidades Implementadas
+
+### ✔ 1 — Cadastrar veículo  
+Inclui validação de placa e persistência automática.
+
+### ✔ 2 — Remover veículo  
+Calcula valor, permite horas manuais ou automáticas e salva no histórico.
+
+### ✔ 3 — Listar veículos  
+Lista todos os veículos presentes no estacionamento.
+
+### ✔ 4 — Mostrar histórico  
+Exibe todas as saídas, incluindo horas e valor pago.
+
+### ✔ 5 — Configurar preços  
+Permite editar o preço inicial e o preço por hora.
+
+### ✔ 6 — Encerrar  
+Finaliza o programa.
+
+---
+
+# 🎨 Demonstração visual do menu
+
+```
+╔══════════════════════════════════════╗
+║        SISTEMA DE ESTACIONAMENTO     ║
+╚══════════════════════════════════════╝
+
+> Cadastrar veículo
+  Remover veículo
+  Listar veículos
+  Mostrar histórico
+  Configurar preços
+  Encerrar
+```
+
+---
+
+# 🧾 Conclusão
+
+Este projeto atende totalmente ao desafio original, mas foi expandido para incluir:
+
+- Persistência real de dados  
+- Tela mais amigável e profissional  
+- Validações extensivas  
+- Histórico detalhado  
+- Configurações dinâmicas  
+
+O resultado é um sistema robusto, organizado e muito superior ao escopo inicial do desafio — refletindo boas práticas de desenvolvimento.
